@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שיעור 1 — מבוא ויסודות Java | תכנות מונחה עצמים</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0f1117;
+  --bg-secondary: #1a1d27;
+  --bg-card: #21242f;
+  --bg-code: #161922;
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-green: #34d399;
+  --accent-orange: #fb923c;
+  --accent-pink: #f472b6;
+  --accent-yellow: #fbbf24;
+  --accent-red: #f87171;
+  --text-primary: #e8eaf0;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --border: #2d3140;
+  --border-glow: rgba(96, 165, 250, 0.3);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.3);
+  --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ===== HERO HEADER ===== */
+.hero {
+  position: relative;
+  padding: 80px 40px 60px;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f1117 0%, #1e1b4b 50%, #0f1117 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(96,165,250,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(167,139,250,0.06) 0%, transparent 50%);
+  animation: heroFloat 15s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-2%, 2%); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.lesson-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 30px;
+  background: rgba(96,165,250,0.15);
+  border: 1px solid rgba(96,165,250,0.3);
+  color: var(--accent-blue);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.hero .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+/* ===== PROGRESS TRACKER ===== */
+.progress-bar-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 17, 23, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 40px;
+}
+
+.progress-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-card);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* ===== TABLE OF CONTENTS ===== */
+.toc {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.toc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow-card);
+}
+
+.toc-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.toc-item:hover {
+  background: rgba(96,165,250,0.1);
+  color: var(--accent-blue);
+}
+
+.toc-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  flex-shrink: 0;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+}
+
+/* Section */
+.section {
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.15s; }
+.section:nth-child(3) { animation-delay: 0.2s; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--border);
+}
+
+.section-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.section-icon.blue { background: rgba(96,165,250,0.15); }
+.section-icon.purple { background: rgba(167,139,250,0.15); }
+.section-icon.green { background: rgba(52,211,153,0.15); }
+.section-icon.orange { background: rgba(251,146,60,0.15); }
+.section-icon.pink { background: rgba(244,114,182,0.15); }
+
+.section h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Text blocks */
+.text-block {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.text-block strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.highlight {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.term {
+  color: var(--accent-green);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  background: rgba(52,211,153,0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Info / Tip / Warning boxes */
+.info-box {
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.8;
+  border-right: 4px solid;
+}
+
+.info-box.tip {
+  background: rgba(52,211,153,0.08);
+  border-color: var(--accent-green);
+  color: #a7f3d0;
+}
+
+.info-box.warning {
+  background: rgba(251,146,60,0.08);
+  border-color: var(--accent-orange);
+  color: #fed7aa;
+}
+
+.info-box.note {
+  background: rgba(96,165,250,0.08);
+  border-color: var(--accent-blue);
+  color: #bfdbfe;
+}
+
+.info-box .box-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== CODE BLOCKS ===== */
+.code-container {
+  margin: 20px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.code-lang {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-purple);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.code-title {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.copy-btn {
+  background: rgba(96,165,250,0.15);
+  border: 1px solid rgba(96,165,250,0.3);
+  color: var(--accent-blue);
+  padding: 4px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'Heebo', sans-serif;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: rgba(96,165,250,0.25);
+}
+
+.code-block {
+  background: var(--bg-code);
+  padding: 20px;
+  overflow-x: auto;
+  direction: ltr;
+  text-align: left;
+}
+
+.code-block pre {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre;
+  color: #e8eaf0;
+}
+
+/* Syntax Colors */
+.kw { color: #c084fc; font-weight: 500; }   /* keywords: public, class, static, void, int, etc */
+.tp { color: #60a5fa; }                      /* types: String, Scanner, etc */
+.st { color: #34d399; }                      /* strings */
+.cm { color: #6b7280; font-style: italic; }  /* comments */
+.nb { color: #fbbf24; }                      /* numbers */
+.fn { color: #f472b6; }                      /* function names */
+.op { color: #9ca3af; }                      /* operators */
+.an { color: #fb923c; }                      /* annotations/special */
+
+/* ===== CONCEPT CARDS ===== */
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.concept-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+}
+
+.concept-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 0 20px rgba(96,165,250,0.1);
+  transform: translateY(-2px);
+}
+
+.concept-card .card-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.concept-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.concept-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===== COMPARISON TABLE ===== */
+.table-container {
+  margin: 20px 0;
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: var(--bg-secondary);
+  padding: 14px 18px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--accent-blue);
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent-green);
+  font-weight: 500;
+}
+
+tr:hover td {
+  background: rgba(96,165,250,0.03);
+}
+
+/* ===== EXERCISE SECTION ===== */
+.exercise {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 24px 0;
+  overflow: hidden;
+}
+
+.exercise-header {
+  padding: 16px 22px;
+  background: linear-gradient(135deg, rgba(251,146,60,0.15), rgba(244,114,182,0.1));
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.exercise-header h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-orange);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.difficulty {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.difficulty.easy {
+  background: rgba(52,211,153,0.15);
+  color: var(--accent-green);
+}
+
+.difficulty.medium {
+  background: rgba(251,191,36,0.15);
+  color: var(--accent-yellow);
+}
+
+.exercise-body {
+  padding: 20px 22px;
+}
+
+.exercise-body p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.8;
+}
+
+/* Solution toggle */
+.solution-toggle {
+  background: rgba(167,139,250,0.1);
+  border: 1px solid rgba(167,139,250,0.3);
+  color: var(--accent-purple);
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Heebo', sans-serif;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+.solution-toggle:hover {
+  background: rgba(167,139,250,0.2);
+}
+
+.solution {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.solution.show { display: block; }
+
+/* ===== ANALOGY BOX ===== */
+.analogy {
+  background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(96,165,250,0.05));
+  border: 1px solid rgba(167,139,250,0.2);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin: 20px 0;
+}
+
+.analogy .analogy-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.analogy p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ===== QUIZ ===== */
+.quiz {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  margin: 24px 0;
+}
+
+.quiz h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-pink);
+  margin-bottom: 14px;
+}
+
+.quiz-question {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-option {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  direction: ltr;
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.quiz-option:hover {
+  border-color: var(--accent-blue);
+  background: rgba(96,165,250,0.05);
+}
+
+.quiz-option.correct {
+  border-color: var(--accent-green) !important;
+  background: rgba(52,211,153,0.1) !important;
+  color: var(--accent-green) !important;
+}
+
+.quiz-option.wrong {
+  border-color: var(--accent-red) !important;
+  background: rgba(248,113,113,0.1) !important;
+  color: var(--accent-red) !important;
+}
+
+.quiz-feedback {
+  margin-top: 12px;
+  font-size: 13px;
+  display: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+.quiz-feedback.show { display: block; }
+.quiz-feedback.success { background: rgba(52,211,153,0.1); color: var(--accent-green); }
+.quiz-feedback.error { background: rgba(248,113,113,0.1); color: var(--accent-red); }
+
+/* ===== LESSON SUMMARY ===== */
+.summary-card {
+  background: linear-gradient(135deg, rgba(96,165,250,0.1), rgba(167,139,250,0.08));
+  border: 1px solid rgba(96,165,250,0.2);
+  border-radius: var(--radius);
+  padding: 30px;
+  margin: 40px 0;
+}
+
+.summary-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin-bottom: 16px;
+}
+
+.checklist {
+  list-style: none;
+}
+
+.checklist li {
+  padding: 8px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checklist li::before {
+  content: '☐';
+  font-size: 16px;
+  color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.checklist li.checked::before {
+  content: '☑';
+  color: var(--accent-green);
+}
+
+/* ===== RESPONSIVE ===== */
+/* ===== NAVIGATION ===== */
+.lesson-nav {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: 1px solid var(--border);
+}
+
+.nav-btn.next {
+  background: linear-gradient(135deg, rgba(96,165,250,0.2), rgba(167,139,250,0.15));
+  color: var(--accent-blue);
+  border-color: rgba(96,165,250,0.3);
+}
+
+.nav-btn.next:hover {
+  background: linear-gradient(135deg, rgba(96,165,250,0.3), rgba(167,139,250,0.25));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(96,165,250,0.2);
+}
+
+.nav-btn.prev {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+}
+
+.nav-btn.prev:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.nav-btn.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.nav-indicator {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+}
+
+.nav-dot.active {
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px rgba(96,165,250,0.4);
+}
+
+.nav-dot.done {
+  background: var(--accent-green);
+}
+
+.top-nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.top-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.top-nav a:hover {
+  color: var(--accent-blue);
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 50px 20px 40px; }
+  .hero h1 { font-size: 2rem; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .concept-grid { grid-template-columns: 1fr; }
+  .code-block pre { font-size: 12px; }
+  .lesson-nav { flex-direction: column; }
+  .nav-btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="lesson-badge">שיעור 1 מתוך 10</div>
+    <h1>מבוא ויסודות שפת Java</h1>
+    <p class="subtitle">תכנות מונחה עצמים — מהנקודה הראשונה ועד תוכנית שעובדת</p>
+  </div>
+</header>
+
+<!-- ===== PROGRESS BAR ===== -->
+<div class="progress-bar-container">
+  <div class="progress-inner">
+    <span class="progress-label">התקדמות בשיעור</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-label" id="progressPercent">0%</span>
+  </div>
+</div>
+
+<!-- ===== TOP NAV ===== -->
+<div class="top-nav">
+  <span style="color: var(--accent-blue);">📍 שיעור 1 מתוך 10</span>
+  <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/lesson2.html">שיעור הבא: ביטויים, תנאים ו-switch ←</a>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <div class="toc-card">
+    <div class="toc-title">📑 תוכן השיעור</div>
+    <div class="toc-grid">
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec1" class="toc-item"><span class="toc-num">1</span>מה זה תכנות מונחה עצמים?</a>
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec2" class="toc-item"><span class="toc-num">2</span>שפת Java — הכרות</a>
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec3" class="toc-item"><span class="toc-num">3</span>מבנה תוכנית ב-Java</a>
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec4" class="toc-item"><span class="toc-num">4</span>משתנים וסוגי נתונים</a>
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec5" class="toc-item"><span class="toc-num">5</span>פלט — הדפסה למסך</a>
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec6" class="toc-item"><span class="toc-num">6</span>קלט — קריאה מהמשתמש</a>
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec7" class="toc-item"><span class="toc-num">7</span>תרגילים</a>
+      <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/index.html#sec8" class="toc-item"><span class="toc-num">8</span>סיכום וצ'קליסט</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="content">
+
+  <!-- ======== SECTION 1 ======== -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-icon blue">🧩</div>
+      <h2>מה זה תכנות מונחה עצמים (OOP)?</h2>
+    </div>
+
+    <div class="text-block">
+      <strong>תכנות מונחה עצמים</strong> (Object Oriented Programming — OOP) זו דרך לכתוב תוכנות מחשב ע"י שימוש ב<strong>"עצמים"</strong> (אובייקטים). כל אובייקט הוא יחידה עצמאית שיש לה <strong>מאפיינים</strong> (תכונות) ו<strong>פעולות</strong> (דברים שהיא יודעת לעשות).
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-title">💡 אנלוגיה מהחיים</div>
+      <p>
+        חשוב על <strong>חשבון בנק</strong> כעל אובייקט. 
+        <strong>המאפיינים שלו:</strong> מספר חשבון, תאריך פתיחה, יתרה נוכחית. 
+        <strong>הפעולות שלו:</strong> הפקדה, משיכה, בירור יתרה. 
+        כל חשבון בנק הוא אובייקט נפרד — עם מספר חשבון משלו ויתרה משלו — אבל כולם "יודעים" לעשות את אותן פעולות.
+      </p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="card-icon">📦</div>
+        <h4>אובייקט (Object)</h4>
+        <p>"דבר" בתוכנה — עם תכונות ופעולות. לדוגמה: חשבון בנק מסוים, לקוח מסוים.</p>
+      </div>
+      <div class="concept-card">
+        <div class="card-icon">📐</div>
+        <h4>מחלקה (Class)</h4>
+        <p>"תבנית" ליצירת אובייקטים. המחלקה מגדירה מה יהיו המאפיינים והפעולות — האובייקט הוא העותק הספציפי.</p>
+      </div>
+      <div class="concept-card">
+        <div class="card-icon">🧬</div>
+        <h4>הורשה (Inheritance)</h4>
+        <p>מחלקה יכולה "לרשת" ממחלקה אחרת — לקבל את כל התכונות שלה ולהוסיף עוד. חוסך שכפול קוד.</p>
+      </div>
+      <div class="concept-card">
+        <div class="card-icon">🔗</div>
+        <h4>קשרים (Relations)</h4>
+        <p>אובייקטים מתחברים זה לזה: בנק מכיל חשבונות, לכל חשבון יש בעלים, בכל חשבון מתבצעות תנועות.</p>
+      </div>
+    </div>
+
+    <div class="info-box note">
+      <div class="box-title">📝 לזכור</div>
+      <strong>מחלקה = תוכנית (Blueprint)</strong> ← <strong>אובייקט = מופע (Instance)</strong>. 
+      המחלקה <span class="term">Account</span> מגדירה מה זה חשבון, אבל חשבון ספציפי עם מספר 12345 ויתרה של 1,000 ₪ — זה האובייקט.
+    </div>
+  </section>
+
+  <!-- ======== SECTION 2 ======== -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-icon purple">☕</div>
+      <h2>שפת Java — הכרות ראשונה</h2>
+    </div>
+
+    <div class="text-block">
+      <strong>Java</strong> היא אחת משפות התכנות הפופולריות בעולם, הושקה ב-1995, ועד היום משמשת לפיתוח אפליקציות Android, מערכות ארגוניות, ועוד. התכונה הייחודית שלה: <strong class="highlight">"Write Once, Run Anywhere"</strong> — כותבים את הקוד פעם אחת והוא רץ על כל מחשב.
+    </div>
+
+    <div class="info-box tip">
+      <div class="box-title">💡 למה Java?</div>
+      כל שפות ה-OOP פועלות לפי אותם עקרונות. אחרי שתלמד Java, המעבר לשפות כמו C#, Python או JavaScript יהיה הרבה יותר קל — ההבדלים הם בעיקר בתחביר (syntax), לא ברעיונות.
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="card-icon">🔒</div>
+        <h4>Strongly Typed</h4>
+        <p>כל משתנה חייב להיות מוגדר עם סוג (int, String...). השפה מגינה עליך משגיאות.</p>
+      </div>
+      <div class="concept-card">
+        <div class="card-icon">🔠</div>
+        <h4>Case-Sensitive</h4>
+        <p><span class="term">counter</span> ו-<span class="term">Counter</span> הם שני דברים שונים לגמרי! שימו לב לאותיות גדולות וקטנות.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SECTION 3 ======== -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-icon green">🏗️</div>
+      <h2>מבנה תוכנית ב-Java</h2>
+    </div>
+
+    <div class="text-block">
+      כל תוכנית Java בנויה מ<strong>מחלקות</strong> (classes). בתוך המחלקה יש <strong>מתודות</strong> (methods = פונקציות). התוכנית מתחילה לרוץ תמיד ממתודה מיוחדת שנקראת <span class="term">main</span>.
+    </div>
+
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">Java</span>
+        <span class="code-title">התוכנית הראשונה שלך</span>
+        <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+      </div>
+      <div class="code-block">
+<pre><span class="kw">public class</span> <span class="tp">MyFirstProgram</span> {
+
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        System.out.<span class="fn">println</span>(<span class="st">"!שלום עולם"</span>);
+    }
+
+}</pre>
+      </div>
+    </div>
+
+    <div class="text-block">
+      בואו נפרק את זה שורה-שורה:
+    </div>
+
+    <div class="table-container">
+      <table>
+        <tbody><tr>
+          <th>קוד</th>
+          <th>מה זה אומר</th>
+        </tr>
+        <tr>
+          <td>public class MyFirstProgram</td>
+          <td>מגדירים מחלקה בשם <strong>MyFirstProgram</strong>. הקובץ חייב להיקרא <strong>MyFirstProgram.java</strong></td>
+        </tr>
+        <tr>
+          <td>{ }</td>
+          <td>סוגריים מסולסלים מגדירים <strong>בלוק קוד</strong> — תחילה וסוף</td>
+        </tr>
+        <tr>
+          <td>public static void main(...)</td>
+          <td>המתודה <strong>main</strong> — נקודת ההתחלה. כל תוכנית חייבת אחת כזו, תמיד באותו מבנה</td>
+        </tr>
+        <tr>
+          <td>System.out.println(...)</td>
+          <td>פקודת <strong>הדפסה למסך</strong> — מה שבתוך הסוגריים יוצג למשתמש</td>
+        </tr>
+        <tr>
+          <td>;</td>
+          <td><strong>נקודה-פסיק</strong> בסוף כל פקודה — חובה ב-Java!</td>
+        </tr>
+      </tbody></table>
+    </div>
+
+    <div class="info-box warning">
+      <div class="box-title">⚠️ שגיאות נפוצות של מתחילים</div>
+      <strong>1.</strong> לשכוח נקודה-פסיק ; בסוף שורה → שגיאת קומפילציה<br>
+      <strong>2.</strong> שם הקובץ לא תואם לשם המחלקה → השפה לא מוצאת את התוכנית<br>
+      <strong>3.</strong> לכתוב Main במקום main (אות גדולה) → Java לא מזהה את נקודת ההתחלה
+    </div>
+
+    <div class="info-box note">
+      <div class="box-title">📝 הערות (Comments)</div>
+      הערות הן הסברים שכותבים בתוך הקוד. הקומפיילר מתעלם מהן — הן לך ולצוות שלך:<br>
+      <span class="term">//</span> הערה עד סוף השורה<br>
+      <span class="term">/* ... */</span> הערה מרובת שורות
+    </div>
+  </section>
+
+  <!-- ======== SECTION 4 ======== -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-icon orange">📊</div>
+      <h2>משתנים וסוגי נתונים</h2>
+    </div>
+
+    <div class="text-block">
+      <strong>משתנה</strong> הוא "קופסה" בזיכרון המחשב שמחזיקה ערך. ב-Java חובה לומר מראש <strong>מה סוג הערך</strong> שיהיה בקופסה — מספר שלם? מספר עשרוני? טקסט?
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-title">💡 אנלוגיה</div>
+      <p>
+        חשוב על משתנה כמו <strong>קופסה עם תווית</strong>. התווית אומרת מה מותר לשים בפנים: 
+        קופסה עם תווית "מספרים שלמים" (int) — אפשר לשים 5 או 100, אבל לא 3.14 ולא "שלום".
+      </p>
+    </div>
+
+    <div class="text-block">
+      <strong>8 הסוגים הבסיסיים (Primitive Types):</strong>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <tbody><tr>
+          <th>סוג</th>
+          <th>מה מאחסן</th>
+          <th>דוגמה</th>
+          <th>מתי נשתמש</th>
+        </tr>
+        <tr>
+          <td>int</td>
+          <td>מספר שלם</td>
+          <td>42, -7, 0</td>
+          <td>ספירות, גילאים, כמויות</td>
+        </tr>
+        <tr>
+          <td>double</td>
+          <td>מספר עשרוני</td>
+          <td>3.14, -0.5</td>
+          <td>ציונים, מחירים, חישובים</td>
+        </tr>
+        <tr>
+          <td>boolean</td>
+          <td>אמת/שקר</td>
+          <td>true, false</td>
+          <td>כן/לא, פועל/כבוי</td>
+        </tr>
+        <tr>
+          <td>char</td>
+          <td>תו בודד</td>
+          <td>'A', 'א', '7'</td>
+          <td>ציון מילולי, סימן</td>
+        </tr>
+        <tr>
+          <td>String</td>
+          <td>מחרוזת (טקסט)</td>
+          <td>"Hello", "שלום"</td>
+          <td>שמות, הודעות, כתובות</td>
+        </tr>
+        <tr>
+          <td>long</td>
+          <td>מספר שלם גדול מאוד</td>
+          <td>9223372036854775807</td>
+          <td>מספרי ת.ז., זמנים</td>
+        </tr>
+        <tr>
+          <td>float</td>
+          <td>עשרוני (פחות מדויק)</td>
+          <td>3.14f</td>
+          <td>נדיר — בד"כ נעדיף double</td>
+        </tr>
+        <tr>
+          <td>byte / short</td>
+          <td>מספרים שלמים קטנים</td>
+          <td>127 / 32767</td>
+          <td>חיסכון זיכרון (נדיר)</td>
+        </tr>
+      </tbody></table>
+    </div>
+
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">Java</span>
+        <span class="code-title">הגדרת משתנים</span>
+        <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+      </div>
+      <div class="code-block">
+<pre><span class="cm">// מספר שלם</span>
+<span class="kw">int</span> age = <span class="nb">25</span>;
+
+<span class="cm">// מספר עשרוני</span>
+<span class="kw">double</span> price = <span class="nb">49.90</span>;
+
+<span class="cm">// ערך בוליאני (אמת/שקר)</span>
+<span class="kw">boolean</span> isStudent = <span class="kw">true</span>;
+
+<span class="cm">// תו בודד — גרש בודד!</span>
+<span class="kw">char</span> grade = <span class="st">'A'</span>;
+
+<span class="cm">// מחרוזת (טקסט) — גרשיים כפולים!</span>
+<span class="tp">String</span> name = <span class="st">"נעם"</span>;
+
+<span class="cm">// ניתן להגדיר מספר משתנים מאותו סוג</span>
+<span class="kw">double</span> width = <span class="nb">5.0</span>, height = <span class="nb">3.5</span>;</pre>
+      </div>
+    </div>
+
+    <div class="info-box tip">
+      <div class="box-title">✅ מוסכמות שמות (Naming Conventions)</div>
+      <strong>משתנים:</strong> מתחילים באות קטנה. אם יש כמה מילים → camelCase:&nbsp; <span class="term">productPrice</span>, <span class="term">isReady</span><br>
+      <strong>מחלקות:</strong> מתחילות באות גדולה → PascalCase:&nbsp; <span class="term">MyProgram</span>, <span class="term">BankAccount</span><br>
+      <strong>קבועים:</strong> אותיות גדולות עם קו תחתון:&nbsp; <span class="term">MAX_VALUE</span>, <span class="term">PI</span>
+    </div>
+
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">Java</span>
+        <span class="code-title">קבועים (Constants)</span>
+        <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+      </div>
+      <div class="code-block">
+<pre><span class="cm">// קבוע = משתנה שלא ניתן לשנות לאחר שהוגדר</span>
+<span class="kw">final double</span> PI = <span class="nb">3.14159</span>;
+<span class="kw">final int</span> HOURS_PER_DAY = <span class="nb">24</span>;
+
+<span class="cm">// PI = 2.71;  ← שגיאה! אסור לשנות קבוע</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SECTION 5 ======== -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-icon pink">📺</div>
+      <h2>פלט — הדפסה למסך</h2>
+    </div>
+
+    <div class="text-block">
+      כדי להציג מידע למשתמש, משתמשים בפקודות ההדפסה של Java. יש שלוש גרסאות:
+    </div>
+
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">Java</span>
+        <span class="code-title">שלושת סוגי ההדפסה</span>
+        <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+      </div>
+      <div class="code-block">
+<pre><span class="cm">// print — מדפיס ונשאר באותה שורה</span>
+System.out.<span class="fn">print</span>(<span class="st">"שלום "</span>);
+System.out.<span class="fn">print</span>(<span class="st">"עולם"</span>);
+<span class="cm">// פלט: שלום עולם</span>
+
+<span class="cm">// println — מדפיס ויורד שורה</span>
+System.out.<span class="fn">println</span>(<span class="st">"שורה ראשונה"</span>);
+System.out.<span class="fn">println</span>(<span class="st">"שורה שנייה"</span>);
+<span class="cm">// פלט:
+// שורה ראשונה
+// שורה שנייה</span>
+
+<span class="cm">// שרשור (חיבור) טקסט עם +</span>
+<span class="tp">String</span> name = <span class="st">"נעם"</span>;
+<span class="kw">int</span> age = <span class="nb">25</span>;
+System.out.<span class="fn">println</span>(<span class="st">"שמי "</span> + name + <span class="st">" ואני בן/בת "</span> + age);</pre>
+      </div>
+    </div>
+
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">Java</span>
+        <span class="code-title">הדפסה בתבנית (printf)</span>
+        <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+      </div>
+      <div class="code-block">
+<pre><span class="tp">String</span> name = <span class="st">"דוד"</span>;
+<span class="kw">double</span> avg = <span class="nb">92.6666</span>;
+
+<span class="cm">// %s = מקום שמור למחרוזת, %n = ירידת שורה</span>
+System.out.<span class="fn">printf</span>(<span class="st">"Student: %s%n"</span>, name);
+
+<span class="cm">// %.1f = מספר עשרוני עם ספרה אחת אחרי הנקודה</span>
+System.out.<span class="fn">printf</span>(<span class="st">"Average: %.1f%n"</span>, avg);
+<span class="cm">// פלט: Average: 92.7</span></pre>
+      </div>
+    </div>
+
+    <div class="info-box note">
+      <div class="box-title">📝 תווים מיוחדים</div>
+      <span class="term">\n</span> — ירידת שורה &nbsp;|&nbsp;
+      <span class="term">\t</span> — Tab &nbsp;|&nbsp;
+      <span class="term">\\</span> — להדפיס \ &nbsp;|&nbsp;
+      <span class="term">\"</span> — להדפיס "
+    </div>
+  </section>
+
+  <!-- ======== SECTION 6 ======== -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-icon blue">⌨️</div>
+      <h2>קלט — קריאה מהמשתמש</h2>
+    </div>
+
+    <div class="text-block">
+      כדי לקרוא נתונים מהמשתמש, משתמשים במחלקה <span class="term">Scanner</span>. צריך <strong>לייבא</strong> אותה (import) בתחילת הקובץ.
+    </div>
+
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">Java</span>
+        <span class="code-title">קלט מהמשתמש — תוכנית מלאה</span>
+        <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+      </div>
+      <div class="code-block">
+<pre><span class="kw">import</span> java.util.Scanner;   <span class="cm">// חובה — מייבאים את Scanner</span>
+
+<span class="kw">public class</span> <span class="tp">HelloUser</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+
+        <span class="cm">// יוצרים אובייקט Scanner לקריאת קלט</span>
+        <span class="tp">Scanner</span> reader = <span class="kw">new</span> <span class="tp">Scanner</span>(System.in);
+
+        <span class="cm">// קולטים מחרוזת</span>
+        System.out.<span class="fn">print</span>(<span class="st">"מה שמך? "</span>);
+        <span class="tp">String</span> name = reader.<span class="fn">nextLine</span>();
+
+        <span class="cm">// קולטים מספר שלם</span>
+        System.out.<span class="fn">print</span>(<span class="st">"מה גילך? "</span>);
+        <span class="kw">int</span> age = reader.<span class="fn">nextInt</span>();
+
+        <span class="cm">// מציגים את הנתונים</span>
+        System.out.<span class="fn">println</span>(<span class="st">"שלום "</span> + name + <span class="st">"! אתה בן/בת "</span> + age);
+
+        reader.<span class="fn">close</span>();   <span class="cm">// סוגרים את הסקנר</span>
+    }
+}</pre>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <tbody><tr>
+          <th>פקודת קלט</th>
+          <th>מה קוראת</th>
+        </tr>
+        <tr>
+          <td>reader.nextLine()</td>
+          <td>שורת טקסט שלמה (String)</td>
+        </tr>
+        <tr>
+          <td>reader.nextInt()</td>
+          <td>מספר שלם (int)</td>
+        </tr>
+        <tr>
+          <td>reader.nextDouble()</td>
+          <td>מספר עשרוני (double)</td>
+        </tr>
+        <tr>
+          <td>reader.nextBoolean()</td>
+          <td>true או false</td>
+        </tr>
+      </tbody></table>
+    </div>
+
+    <div class="info-box warning">
+      <div class="box-title">⚠️ מלכודת נפוצה! nextInt + nextLine</div>
+      אם קוראים <span class="term">nextInt()</span> ומיד אחריו <span class="term">nextLine()</span>, ה-nextLine "יבלע" את ה-Enter שנשאר מהקלט הקודם. 
+      <strong>הפתרון:</strong> להוסיף <span class="term">reader.nextLine();</span> ריק אחרי nextInt כדי "לנקות" את הזיכרון.
+    </div>
+
+    <div class="code-container">
+      <div class="code-header">
+        <span class="code-lang">Java</span>
+        <span class="code-title">הפתרון למלכודת</span>
+        <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+      </div>
+      <div class="code-block">
+<pre>System.out.<span class="fn">print</span>(<span class="st">"הכנס גיל: "</span>);
+<span class="kw">int</span> age = reader.<span class="fn">nextInt</span>();
+
+reader.<span class="fn">nextLine</span>();   <span class="cm">// ← ניקוי! בולע את ה-Enter</span>
+
+System.out.<span class="fn">print</span>(<span class="st">"הכנס שם מלא: "</span>);
+<span class="tp">String</span> name = reader.<span class="fn">nextLine</span>();   <span class="cm">// עכשיו ממתין לקלט כרגיל</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SECTION 7 — EXERCISES ======== -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-icon orange">✏️</div>
+      <h2>תרגילים</h2>
+    </div>
+
+    <div class="text-block">
+      הגיע הזמן לתרגל! נסה לכתוב כל תרגיל בעצמך לפני שאתה מציץ בפתרון.
+    </div>
+
+    <!-- Exercise 1 -->
+    <div class="exercise">
+      <div class="exercise-header" onclick="toggleSolution(&#39;sol1&#39;)">
+        <h4>✏️ תרגיל 1 — הצגת כרטיס ביקור</h4>
+        <span class="difficulty easy">קל</span>
+      </div>
+      <div class="exercise-body">
+        <p>
+          כתוב תוכנית שמגדירה משתנים עבור: <strong>שם</strong>, <strong>גיל</strong>, <strong>עיר מגורים</strong> ו<strong>מספר טלפון</strong>. 
+          התוכנית תדפיס למסך "כרטיס ביקור" בפורמט יפה, לדוגמה:
+        </p>
+        <div class="code-container" style="margin-bottom: 12px;">
+          <div class="code-block">
+<pre>===== כרטיס ביקור =====
+שם: נעם כהן
+גיל: 28
+עיר: תל אביב
+טלפון: 054-1234567
+========================</pre>
+          </div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSolution(&#39;sol1&#39;)">הצג פתרון</button>
+        <div class="solution" id="sol1">
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-lang">Java</span>
+              <span class="code-title">פתרון תרגיל 1</span>
+              <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+            </div>
+            <div class="code-block">
+<pre><span class="kw">public class</span> <span class="tp">BusinessCard</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="tp">String</span> name = <span class="st">"נעם כהן"</span>;
+        <span class="kw">int</span> age = <span class="nb">28</span>;
+        <span class="tp">String</span> city = <span class="st">"תל אביב"</span>;
+        <span class="tp">String</span> phone = <span class="st">"054-1234567"</span>;
+
+        System.out.<span class="fn">println</span>(<span class="st">"===== כרטיס ביקור ====="</span>);
+        System.out.<span class="fn">println</span>(<span class="st">"שם: "</span> + name);
+        System.out.<span class="fn">println</span>(<span class="st">"גיל: "</span> + age);
+        System.out.<span class="fn">println</span>(<span class="st">"עיר: "</span> + city);
+        System.out.<span class="fn">println</span>(<span class="st">"טלפון: "</span> + phone);
+        System.out.<span class="fn">println</span>(<span class="st">"========================"</span>);
+    }
+}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="exercise">
+      <div class="exercise-header" onclick="toggleSolution(&#39;sol2&#39;)">
+        <h4>✏️ תרגיל 2 — מחשבון שטח מלבן</h4>
+        <span class="difficulty easy">קל</span>
+      </div>
+      <div class="exercise-body">
+        <p>
+          כתוב תוכנית ש<strong>קולטת מהמשתמש</strong> אורך ורוחב של מלבן (מספרים עשרוניים), 
+          מחשבת את <strong>השטח</strong> (אורך × רוחב) ואת <strong>ההיקף</strong> (2 × (אורך + רוחב)), ומדפיסה את התוצאות.
+        </p>
+        <button class="solution-toggle" onclick="toggleSolution(&#39;sol2&#39;)">הצג פתרון</button>
+        <div class="solution" id="sol2">
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-lang">Java</span>
+              <span class="code-title">פתרון תרגיל 2</span>
+              <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+            </div>
+            <div class="code-block">
+<pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="tp">RectangleCalc</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="tp">Scanner</span> reader = <span class="kw">new</span> <span class="tp">Scanner</span>(System.in);
+
+        System.out.<span class="fn">print</span>(<span class="st">"הכנס אורך: "</span>);
+        <span class="kw">double</span> length = reader.<span class="fn">nextDouble</span>();
+
+        System.out.<span class="fn">print</span>(<span class="st">"הכנס רוחב: "</span>);
+        <span class="kw">double</span> width = reader.<span class="fn">nextDouble</span>();
+
+        <span class="kw">double</span> area = length * width;
+        <span class="kw">double</span> perimeter = <span class="nb">2</span> * (length + width);
+
+        System.out.<span class="fn">println</span>(<span class="st">"שטח המלבן: "</span> + area);
+        System.out.<span class="fn">println</span>(<span class="st">"היקף המלבן: "</span> + perimeter);
+
+        reader.<span class="fn">close</span>();
+    }
+}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div class="exercise">
+      <div class="exercise-header" onclick="toggleSolution(&#39;sol3&#39;)">
+        <h4>✏️ תרגיל 3 — המרת טמפרטורה</h4>
+        <span class="difficulty medium">בינוני</span>
+      </div>
+      <div class="exercise-body">
+        <p>
+          כתוב תוכנית שקולטת טמפרטורה ב<strong>צלזיוס</strong> ומדפיסה אותה ב<strong>פרנהייט</strong>.<br>
+          הנוסחה: <strong>F = C × 9/5 + 32</strong><br>
+          <em>שים לב:</em> מה קורה כשמחלקים שני שלמים ב-Java? (רמז: 9/5 ≠ 1.8)
+        </p>
+        <button class="solution-toggle" onclick="toggleSolution(&#39;sol3&#39;)">הצג פתרון</button>
+        <div class="solution" id="sol3">
+          <div class="code-container">
+            <div class="code-header">
+              <span class="code-lang">Java</span>
+              <span class="code-title">פתרון תרגיל 3</span>
+              <button class="copy-btn" onclick="copyCode(this)">העתק</button>
+            </div>
+            <div class="code-block">
+<pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="tp">TempConverter</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="tp">Scanner</span> reader = <span class="kw">new</span> <span class="tp">Scanner</span>(System.in);
+
+        System.out.<span class="fn">print</span>(<span class="st">"הכנס טמפרטורה בצלזיוס: "</span>);
+        <span class="kw">double</span> celsius = reader.<span class="fn">nextDouble</span>();
+
+        <span class="cm">// שים לב: 9.0 ולא 9 — כדי לקבל חילוק עשרוני!</span>
+        <span class="kw">double</span> fahrenheit = celsius * <span class="nb">9.0</span> / <span class="nb">5</span> + <span class="nb">32</span>;
+
+        System.out.<span class="fn">printf</span>(<span class="st">"%.1f°C = %.1f°F%n"</span>, celsius, fahrenheit);
+
+        reader.<span class="fn">close</span>();
+    }
+}</pre>
+            </div>
+          </div>
+          <div class="info-box tip" style="margin-top: 12px;">
+            <div class="box-title">💡 נקודת מפתח</div>
+            <strong>9 / 5 = 1</strong> (חילוק שלמים!) אבל <strong>9.0 / 5 = 1.8</strong> (חילוק עשרוני). 
+            מספיק שאחד מהמספרים יהיה עשרוני כדי שהתוצאה תהיה עשרונית.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== QUIZ ======== -->
+  <section class="section">
+    <div class="quiz">
+      <h4>🧠 בדוק את עצמך — שאלה 1</h4>
+      <p class="quiz-question">מה יודפס למסך?</p>
+      <div class="code-container" style="margin-bottom: 16px;">
+        <div class="code-block">
+<pre>System.out.print(5 / 2);</pre>
+        </div>
+      </div>
+      <div class="quiz-options" id="quiz1">
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;, this, false)">2.5</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;, this, true)">2</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;, this, false)">2.0</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;, this, false)">שגיאה</div>
+      </div>
+      <div class="quiz-feedback" id="quiz1-fb"></div>
+    </div>
+
+    <div class="quiz">
+      <h4>🧠 בדוק את עצמך — שאלה 2</h4>
+      <p class="quiz-question">איזה שם משתנה <strong>לא</strong> חוקי ב-Java?</p>
+      <div class="quiz-options" id="quiz2">
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;, this, false)">myAge</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;, this, false)">_count</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;, this, true)">3rdPlace</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;, this, false)">$total</div>
+      </div>
+      <div class="quiz-feedback" id="quiz2-fb"></div>
+    </div>
+
+    <div class="quiz">
+      <h4>🧠 בדוק את עצמך — שאלה 3</h4>
+      <p class="quiz-question">מה ההבדל בין <code>print</code> ל-<code>println</code>?</p>
+      <div class="quiz-options" id="quiz3" style="direction: rtl; text-align: right; font-family: &#39;Heebo&#39;, sans-serif; font-size: 14px;">
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;, this, false)">אין הבדל</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;, this, true)">println יורד שורה אחרי ההדפסה, print לא</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;, this, false)">print מדפיס רק מספרים</div>
+        <div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;, this, false)">println מדפיס בצבע</div>
+      </div>
+      <div class="quiz-feedback" id="quiz3-fb"></div>
+    </div>
+  </section>
+
+  <!-- ======== SECTION 8 — SUMMARY ======== -->
+  <section class="section" id="sec8">
+    <div class="summary-card">
+      <h3>📋 סיכום שיעור 1 — מה למדנו?</h3>
+      <ul class="checklist" id="checklist">
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">מה זה OOP — אובייקטים, מחלקות, מאפיינים ופעולות</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">Java — שפה מונחית עצמים, Case-Sensitive, Strongly Typed</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">מבנה תוכנית: class → main method → פקודות</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">סוגי נתונים: int, double, boolean, char, String</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">הגדרת משתנים וקבועים (final)</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">פלט: print, println, printf</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">קלט: Scanner — nextLine, nextInt, nextDouble</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">מלכודת nextInt + nextLine ואיך לפתור</li>
+        <li onclick="this.classList.toggle(&#39;checked&#39;)">חילוק שלמים (5/2 = 2) לעומת חילוק עשרוני</li>
+      </ul>
+    </div>
+
+    <div class="info-box tip">
+      <div class="box-title">🔜 בשיעור הבא</div>
+      <strong>ביטויים חישוביים, תנאים (if/else), ולולאות (for, while)</strong> — נלמד איך לגרום לתוכנית לקבל החלטות ולחזור על פעולות.
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM NAVIGATION ===== -->
+  <div class="lesson-nav">
+    <span class="nav-btn prev disabled">→ שיעור קודם</span>
+    <div class="nav-indicator">
+      <div class="nav-dots">
+        <div class="nav-dot active"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+      </div>
+      <span>שיעור 1 מתוך 10</span>
+    </div>
+    <a href="file:///C:/Users/Niv/AppData/Local/Temp/e327694a-b4b6-4356-ac75-705188aa0dc6_java_course_complete.zip.dc6/lesson2.html" class="nav-btn next">שיעור הבא: תנאים ו-switch ←</a>
+  </div>
+
+</main>
+
+<script>
+// ===== PROGRESS BAR =====
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const pct = Math.round((scrollTop / scrollHeight) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPercent').textContent = pct + '%';
+});
+
+// ===== COPY CODE =====
+function copyCode(btn) {
+  const block = btn.closest('.code-container').querySelector('pre');
+  navigator.clipboard.writeText(block.textContent).then(() => {
+    btn.textContent = '✓ הועתק!';
+    setTimeout(() => btn.textContent = 'העתק', 2000);
+  });
+}
+
+// ===== TOGGLE SOLUTION =====
+function toggleSolution(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('show');
+}
+
+// ===== QUIZ =====
+function checkQuiz(quizId, option, isCorrect) {
+  const container = document.getElementById(quizId);
+  const fb = document.getElementById(quizId + '-fb');
+  
+  // Prevent re-answering
+  if (container.dataset.answered) return;
+  container.dataset.answered = 'true';
+  
+  if (isCorrect) {
+    option.classList.add('correct');
+    fb.className = 'quiz-feedback show success';
+    fb.textContent = '🎉 נכון מאוד!';
+  } else {
+    option.classList.add('wrong');
+    // Highlight correct
+    container.querySelectorAll('.quiz-option').forEach(o => {
+      if (o !== option && o.getAttribute('onclick').includes('true')) {
+        o.classList.add('correct');
+      }
+    });
+    fb.className = 'quiz-feedback show error';
+    fb.textContent = '❌ לא מדויק — ראה את התשובה הנכונה המסומנת בירוק';
+  }
+}
+
+// ===== SMOOTH SCROLL FOR TOC =====
+document.querySelectorAll('.toc-item').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+
+
+</body></html>

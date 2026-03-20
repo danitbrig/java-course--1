@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- saved from url=(0118)file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson4.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שיעור 4 — מערכים | תכנות מונחה עצמים</title>
+<link href="./lesson4_files/css2" rel="stylesheet">
+<style>
+:root{--bg-primary:#0f1117;--bg-secondary:#1a1d27;--bg-card:#21242f;--bg-code:#161922;--accent-blue:#60a5fa;--accent-purple:#a78bfa;--accent-green:#34d399;--accent-orange:#fb923c;--accent-pink:#f472b6;--accent-yellow:#fbbf24;--accent-red:#f87171;--accent-cyan:#22d3ee;--text-primary:#e8eaf0;--text-secondary:#9ca3af;--text-muted:#6b7280;--border:#2d3140;--border-glow:rgba(96,165,250,0.3);--shadow-card:0 4px 24px rgba(0,0,0,0.3);--radius:12px;--lesson-accent:#34d399}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Heebo',sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.8;font-size:16px;overflow-x:hidden}.hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden}.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;animation:heroFloat 15s ease-in-out infinite}@keyframes heroFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-2%,2%)}}.hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}.lesson-badge{display:inline-block;padding:6px 20px;border-radius:30px;font-size:14px;font-weight:500;margin-bottom:20px;letter-spacing:1px}.hero h1{font-size:3rem;font-weight:900;-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;line-height:1.3}.hero .subtitle{font-size:1.2rem;color:var(--text-secondary);font-weight:300}.progress-bar-container{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:12px 40px}.progress-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:12px}.progress-label{font-size:13px;color:var(--text-muted);white-space:nowrap}.progress-track{flex:1;height:6px;background:var(--bg-card);border-radius:3px;overflow:hidden}.progress-fill{height:100%;border-radius:3px;width:0%;transition:width .3s ease}.top-nav{max-width:900px;margin:0 auto;padding:10px 20px;display:flex;justify-content:space-between;font-size:13px}.top-nav a{color:var(--text-muted);text-decoration:none}.top-nav a:hover{color:var(--lesson-accent)}.toc{max-width:900px;margin:40px auto;padding:0 20px}.toc-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-card)}.toc-title{font-size:1.1rem;font-weight:700;color:var(--lesson-accent);margin-bottom:20px}.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.toc-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--text-secondary);font-size:14px}.toc-item:hover{color:var(--lesson-accent)}.toc-num{width:28px;height:28px;border-radius:50%;background:var(--bg-secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--lesson-accent);flex-shrink:0}.content{max-width:900px;margin:0 auto;padding:20px 20px 80px}.section{margin-bottom:60px;opacity:0;transform:translateY(20px);animation:fadeUp .6s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--border)}.section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}.section-icon.blue{background:rgba(96,165,250,0.15)}.section-icon.purple{background:rgba(167,139,250,0.15)}.section-icon.green{background:rgba(52,211,153,0.15)}.section-icon.orange{background:rgba(251,146,60,0.15)}.section-icon.pink{background:rgba(244,114,182,0.15)}.section-icon.cyan{background:rgba(34,211,238,0.15)}.section-icon.yellow{background:rgba(251,191,36,0.15)}.section-icon.red{background:rgba(248,113,113,0.15)}.section h2{font-size:1.6rem;font-weight:700}.text-block{margin-bottom:20px;color:var(--text-secondary);font-size:15px;line-height:1.9}.text-block strong{color:var(--text-primary);font-weight:600}.term{color:var(--accent-green);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:14px;background:rgba(52,211,153,0.1);padding:2px 6px;border-radius:4px}.info-box{padding:18px 22px;border-radius:var(--radius);margin:20px 0;font-size:14px;line-height:1.8;border-right:4px solid}.info-box.tip{background:rgba(52,211,153,0.08);border-color:var(--accent-green);color:#a7f3d0}.info-box.warning{background:rgba(251,146,60,0.08);border-color:var(--accent-orange);color:#fed7aa}.info-box.note{background:rgba(96,165,250,0.08);border-color:var(--accent-blue);color:#bfdbfe}.info-box .box-title{font-weight:700;margin-bottom:6px}.code-container{margin:20px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-card)}.code-header{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:var(--bg-secondary);border-bottom:1px solid var(--border)}.code-lang{font-size:12px;font-weight:600;color:var(--accent-purple);letter-spacing:1px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}.code-title{font-size:13px;color:var(--text-muted)}.copy-btn{background:rgba(96,165,250,0.15);border:1px solid rgba(96,165,250,0.3);color:var(--accent-blue);padding:4px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-family:'Heebo',sans-serif}.code-block{background:var(--bg-code);padding:20px;overflow-x:auto;direction:ltr;text-align:left}.code-block pre{font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.7;white-space:pre;color:#e8eaf0}.kw{color:#c084fc;font-weight:500}.tp{color:#60a5fa}.st{color:#34d399}.cm{color:#6b7280;font-style:italic}.nb{color:#fbbf24}.fn{color:#f472b6}.table-container{margin:20px 0;overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}table{width:100%;border-collapse:collapse;font-size:14px}th{background:var(--bg-secondary);padding:14px 18px;text-align:right;font-weight:600;color:var(--lesson-accent);border-bottom:2px solid var(--border)}td{padding:12px 18px;border-bottom:1px solid var(--border);color:var(--text-secondary)}td:first-child{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-green)}.concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:20px 0}.concept-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all .3s}.concept-card:hover{border-color:var(--border-glow);transform:translateY(-2px)}.concept-card .card-icon{font-size:28px;margin-bottom:12px}.concept-card h4{font-size:15px;font-weight:700;margin-bottom:8px}.concept-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}.analogy{border:1px solid rgba(167,139,250,0.2);border-radius:var(--radius);padding:22px;margin:20px 0}.analogy .analogy-title{font-size:14px;font-weight:700;color:var(--lesson-accent);margin-bottom:8px}.analogy p{font-size:14px;color:var(--text-secondary);line-height:1.8}.exercise{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin:24px 0;overflow:hidden}.exercise-header{padding:16px 22px;background:linear-gradient(135deg,rgba(251,146,60,0.15),rgba(244,114,182,0.1));border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;cursor:pointer}.exercise-header h4{font-size:15px;font-weight:700;color:var(--accent-orange)}.difficulty{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}.difficulty.easy{background:rgba(52,211,153,0.15);color:var(--accent-green)}.difficulty.medium{background:rgba(251,191,36,0.15);color:var(--accent-yellow)}.difficulty.hard{background:rgba(248,113,113,0.15);color:var(--accent-red)}.exercise-body{padding:20px 22px}.exercise-body p{color:var(--text-secondary);font-size:14px;margin-bottom:14px;line-height:1.8}.solution-toggle{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);color:var(--accent-purple);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:'Heebo',sans-serif;margin-top:10px}.solution{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}.solution.show{display:block}.quiz{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;margin:24px 0}.quiz h4{font-size:15px;font-weight:700;color:var(--accent-pink);margin-bottom:14px}.quiz-question{color:var(--text-secondary);font-size:14px;margin-bottom:12px}.quiz-options{display:flex;flex-direction:column;gap:8px}.quiz-option{padding:12px 16px;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;color:var(--text-secondary);transition:all .2s;direction:ltr;text-align:left;font-family:'JetBrains Mono',monospace}.quiz-option.correct{border-color:var(--accent-green)!important;background:rgba(52,211,153,0.1)!important;color:var(--accent-green)!important}.quiz-option.wrong{border-color:var(--accent-red)!important;background:rgba(248,113,113,0.1)!important;color:var(--accent-red)!important}.quiz-feedback{margin-top:12px;font-size:13px;display:none;padding:10px 14px;border-radius:8px}.quiz-feedback.show{display:block}.quiz-feedback.success{background:rgba(52,211,153,0.1);color:var(--accent-green)}.quiz-feedback.error{background:rgba(248,113,113,0.1);color:var(--accent-red)}.summary-card{border-radius:var(--radius);padding:30px;margin:40px 0}.summary-card h3{font-size:1.2rem;font-weight:700;color:var(--lesson-accent);margin-bottom:16px}.checklist{list-style:none}.checklist li{padding:8px 0;color:var(--text-secondary);font-size:14px;display:flex;align-items:center;gap:10px;cursor:pointer}.checklist li::before{content:'☐';font-size:16px;color:var(--lesson-accent)}.checklist li.checked::before{content:'☑';color:var(--accent-green)}.lesson-nav{max-width:900px;margin:0 auto 40px;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}.nav-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;text-decoration:none;font-family:'Heebo',sans-serif;font-size:15px;font-weight:600;transition:all .3s;border:1px solid var(--border)}.nav-btn.next{color:var(--lesson-accent)}.nav-btn.next:hover{transform:translateY(-2px)}.nav-btn.prev{background:var(--bg-card);color:var(--text-secondary)}.nav-btn.prev:hover{color:var(--text-primary)}.nav-btn.disabled{opacity:.3;pointer-events:none}.nav-indicator{font-size:13px;color:var(--text-muted);display:flex;flex-direction:column;align-items:center;gap:4px}.nav-dots{display:flex;gap:6px}.nav-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}.nav-dot.active{background:var(--lesson-accent)}.nav-dot.done{background:var(--accent-green)}@media(max-width:600px){.hero{padding:50px 20px 40px}.hero h1{font-size:2rem}.toc-grid,.concept-grid{grid-template-columns:1fr}.code-block pre{font-size:12px}.lesson-nav{flex-direction:column}.nav-btn{width:100%;justify-content:center}}
+.hero{background:linear-gradient(135deg,#0f1117 0%,#0f2922 50%,#0f1117 100%)}.hero::before{background:radial-gradient(circle at 50% 40%,rgba(52,211,153,0.07) 0%,transparent 50%)}.lesson-badge{background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.3);color:var(--lesson-accent)}.hero h1{background:linear-gradient(135deg,var(--accent-green),var(--accent-cyan));-webkit-background-clip:text}.progress-fill{background:linear-gradient(90deg,var(--accent-green),var(--accent-cyan))}.analogy{background:linear-gradient(135deg,rgba(52,211,153,0.08),rgba(52,211,153,0.03))}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-content"><div class="lesson-badge">שיעור 4 מתוך 10</div><h1>מערכים (Arrays)</h1><p class="subtitle">אחסון נתונים בגודל קבוע — חד-ממדי ודו-ממדי</p></div></header>
+<div class="progress-bar-container"><div class="progress-inner"><span class="progress-label">התקדמות בשיעור</span><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><span class="progress-label" id="progressPercent">0%</span></div></div>
+<div class="top-nav"><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson3.html">→ שיעור קודם: מחרוזות ו-Math</a><span style="color:var(--lesson-accent)">📍 שיעור 4 מתוך 10</span><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson5.html">פונקציות/מתודות ←</a></div>
+<nav class="toc"><div class="toc-card"><div class="toc-title">📑 תוכן השיעור</div><div class="toc-grid"><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson4.html#sec1" class="toc-item"><span class="toc-num">1</span>מערכים — מבוא</a><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson4.html#sec2" class="toc-item"><span class="toc-num">2</span>גישה ו-length</a><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson4.html#sec3" class="toc-item"><span class="toc-num">3</span>אלגוריתמים על מערכים</a><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson4.html#sec4" class="toc-item"><span class="toc-num">4</span>מערכים דו-ממדיים</a><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson4.html#sec5" class="toc-item"><span class="toc-num">5</span>תרגילים</a><a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson4.html#sec6" class="toc-item"><span class="toc-num">6</span>סיכום</a></div></div></nav>
+<main class="content">
+
+<section class="section" id="sec1">
+<div class="section-header"><div class="section-icon green">📊</div><h2>מערכים (Arrays) — מבוא</h2></div>
+<div class="text-block"><strong>מערך</strong> הוא מבנה נתונים שמאחסן <strong>כמה ערכים מאותו סוג</strong> ברצף. בשונה מרשימה ב-Python, מערך ב-Java הוא <strong>בגודל קבוע</strong> — לא ניתן להגדיל או להקטין אותו.</div>
+
+<div class="analogy"><div class="analogy-title">💡 אנלוגיה</div><p>חשוב על מערך כמו <strong>ארון עם מגירות ממוספרות</strong>. כשקונים ארון עם 5 מגירות — אי אפשר להוסיף מגירה שישית. אבל אפשר לשים ולהוציא דברים מכל מגירה לפי המספר שלה (0, 1, 2, 3, 4).</p></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">יצירת מערכים</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="cm">// דרך 1: הגדרה עם ערכים</span>
+<span class="kw">int</span>[] numbers = {<span class="nb">10</span>, <span class="nb">20</span>, <span class="nb">30</span>, <span class="nb">40</span>, <span class="nb">50</span>};
+
+<span class="cm">// דרך 2: הגדרה עם גודל (ערכים ריקים = 0)</span>
+<span class="kw">int</span>[] scores = <span class="kw">new</span> <span class="kw">int</span>[<span class="nb">5</span>];  <span class="cm">// [0, 0, 0, 0, 0]</span>
+
+<span class="cm">// דרך 3: גודל דינמי מהמשתמש</span>
+<span class="kw">int</span> size = reader.<span class="fn">nextInt</span>();
+<span class="kw">int</span>[] arr = <span class="kw">new</span> <span class="kw">int</span>[size];
+
+<span class="cm">// מערכים מסוגים שונים</span>
+<span class="kw">double</span>[] prices = <span class="kw">new</span> <span class="kw">double</span>[<span class="nb">10</span>];
+<span class="tp">String</span>[] names = {<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>};
+<span class="kw">boolean</span>[] flags = <span class="kw">new</span> <span class="kw">boolean</span>[<span class="nb">3</span>];  <span class="cm">// [false, false, false]</span></pre></div></div>
+
+<div class="info-box warning"><div class="box-title">⚠️ ערכי ברירת מחדל במערך ריק</div>
+<span class="term">int[]</span> → 0 &nbsp;|&nbsp; <span class="term">double[]</span> → 0.0 &nbsp;|&nbsp; <span class="term">boolean[]</span> → false &nbsp;|&nbsp; <span class="term">String[]</span> → null</div>
+</section>
+
+<section class="section" id="sec2">
+<div class="section-header"><div class="section-icon blue">🔍</div><h2>גישה לאיברים ו-length</h2></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">גישה, עדכון ומעבר על מערך</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">int</span>[] nums = {<span class="nb">10</span>, <span class="nb">20</span>, <span class="nb">30</span>, <span class="nb">40</span>, <span class="nb">50</span>};
+
+<span class="cm">// גישה לאיבר (אינדקס מתחיל מ-0!)</span>
+System.out.<span class="fn">println</span>(nums[<span class="nb">0</span>]);   <span class="cm">// 10</span>
+System.out.<span class="fn">println</span>(nums[<span class="nb">4</span>]);   <span class="cm">// 50</span>
+
+<span class="cm">// עדכון ערך</span>
+nums[<span class="nb">2</span>] = <span class="nb">99</span>;  <span class="cm">// [10, 20, 99, 40, 50]</span>
+
+<span class="cm">// אורך המערך — .length בלי סוגריים!</span>
+System.out.<span class="fn">println</span>(nums.length);  <span class="cm">// 5</span>
+
+<span class="cm">// מעבר עם for</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">0</span>; i &lt; nums.length; i++) {
+    System.out.<span class="fn">println</span>(<span class="st">"אינדקס "</span> + i + <span class="st">": "</span> + nums[i]);
+}
+
+<span class="cm">// מעבר עם for-each (קריאה בלבד!)</span>
+<span class="kw">for</span> (<span class="kw">int</span> num : nums) {
+    System.out.<span class="fn">println</span>(num);
+}</pre></div></div>
+
+<div class="info-box warning"><div class="box-title">⚠️ ArrayIndexOutOfBoundsException</div>גישה לאינדקס שלא קיים (למשל nums[5] במערך בגודל 5) תגרום לשגיאה! האינדקס האחרון הוא תמיד <span class="term">length - 1</span>.</div>
+
+<div class="info-box note"><div class="box-title">📝 .length במערך לעומת .length() במחרוזת</div>
+<span class="term">arr.length</span> — בלי סוגריים (תכונה של מערך)<br>
+<span class="term">str.length()</span> — עם סוגריים (מתודה של String)<br>
+זה הבדל קלאסי ששואלים עליו במבחן!</div>
+</section>
+
+<section class="section" id="sec3">
+<div class="section-header"><div class="section-icon orange">🧮</div><h2>אלגוריתמים על מערכים</h2></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">חיפוש ערך מינימלי</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">public static int</span> <span class="fn">findMin</span>(<span class="kw">int</span>[] arr) {
+    <span class="kw">int</span> min = arr[<span class="nb">0</span>];
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">1</span>; i &lt; arr.length; i++) {
+        <span class="kw">if</span> (arr[i] &lt; min) {
+            min = arr[i];
+        }
+    }
+    <span class="kw">return</span> min;
+}</pre></div></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">חיפוש סדרתי (Sequential Search)</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">public static int</span> <span class="fn">search</span>(<span class="kw">int</span>[] arr, <span class="kw">int</span> target) {
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">0</span>; i &lt; arr.length; i++) {
+        <span class="kw">if</span> (arr[i] == target) {
+            <span class="kw">return</span> i;  <span class="cm">// נמצא — מחזיר אינדקס</span>
+        }
+    }
+    <span class="kw">return</span> -<span class="nb">1</span>;  <span class="cm">// לא נמצא</span>
+}</pre></div></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">חישוב ממוצע</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">public static double</span> <span class="fn">average</span>(<span class="kw">int</span>[] arr) {
+    <span class="kw">int</span> sum = <span class="nb">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> num : arr) {
+        sum += num;
+    }
+    <span class="kw">return</span> (<span class="kw">double</span>) sum / arr.length;
+}</pre></div></div>
+</section>
+
+<section class="section" id="sec4">
+<div class="section-header"><div class="section-icon purple">📐</div><h2>מערכים דו-ממדיים (2D Arrays)</h2></div>
+<div class="text-block">מערך דו-ממדי הוא <strong>מערך של מערכים</strong> — כמו טבלה עם שורות ועמודות.</div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">מערך דו-ממדי</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="cm">// 3 שורות × 4 עמודות</span>
+<span class="kw">int</span>[][] matrix = <span class="kw">new</span> <span class="kw">int</span>[<span class="nb">3</span>][<span class="nb">4</span>];
+
+<span class="cm">// עם ערכים</span>
+<span class="kw">int</span>[][] grid = {
+    {<span class="nb">1</span>, <span class="nb">2</span>, <span class="nb">3</span>},
+    {<span class="nb">4</span>, <span class="nb">5</span>, <span class="nb">6</span>},
+    {<span class="nb">7</span>, <span class="nb">8</span>, <span class="nb">9</span>}
+};
+
+<span class="cm">// גישה: grid[שורה][עמודה]</span>
+System.out.<span class="fn">println</span>(grid[<span class="nb">1</span>][<span class="nb">2</span>]);  <span class="cm">// 6</span>
+
+<span class="cm">// מעבר על כל האיברים</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">0</span>; i &lt; grid.length; i++) {        <span class="cm">// שורות</span>
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nb">0</span>; j &lt; grid[i].length; j++) {  <span class="cm">// עמודות</span>
+        System.out.<span class="fn">print</span>(grid[i][j] + <span class="st">" "</span>);
+    }
+    System.out.<span class="fn">println</span>();  <span class="cm">// ירידת שורה</span>
+}
+
+<span class="cm">// grid.length = מספר שורות (3)</span>
+<span class="cm">// grid[0].length = מספר עמודות בשורה 0 (3)</span></pre></div></div>
+</section>
+
+<section class="section" id="sec5">
+<div class="section-header"><div class="section-icon orange">✏️</div><h2>תרגילים</h2></div>
+
+<div class="exercise"><div class="exercise-header" onclick="toggleSolution(&#39;sol1&#39;)"><h4>✏️ תרגיל 1 — ספירת חיוביים</h4><span class="difficulty easy">קל</span></div><div class="exercise-body"><p>כתוב פונקציה שמקבלת מערך של int ומחזירה את <strong>מספר הערכים החיוביים</strong>.</p><button class="solution-toggle" onclick="toggleSolution(&#39;sol1&#39;)">הצג פתרון</button><div class="solution" id="sol1"><div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">פתרון</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">public static int</span> <span class="fn">countPositive</span>(<span class="kw">int</span>[] arr) {
+    <span class="kw">int</span> count = <span class="nb">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> num : arr) {
+        <span class="kw">if</span> (num &gt; <span class="nb">0</span>) {
+            count++;
+        }
+    }
+    <span class="kw">return</span> count;
+}</pre></div></div></div></div></div>
+
+<div class="exercise"><div class="exercise-header" onclick="toggleSolution(&#39;sol2&#39;)"><h4>✏️ תרגיל 2 — בדיקת סדרה עולה</h4><span class="difficulty medium">בינוני</span></div><div class="exercise-body"><p>כתוב פונקציה שמקבלת מערך ומחזירה <strong>true</strong> אם כל איבר גדול מהקודם (סדרה עולה).</p><button class="solution-toggle" onclick="toggleSolution(&#39;sol2&#39;)">הצג פתרון</button><div class="solution" id="sol2"><div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">פתרון</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">public static boolean</span> <span class="fn">isAscending</span>(<span class="kw">int</span>[] arr) {
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">1</span>; i &lt; arr.length; i++) {
+        <span class="kw">if</span> (arr[i] &lt;= arr[i - <span class="nb">1</span>]) {
+            <span class="kw">return false</span>;
+        }
+    }
+    <span class="kw">return true</span>;
+}</pre></div></div></div></div></div>
+
+<div class="exercise"><div class="exercise-header" onclick="toggleSolution(&#39;sol3&#39;)"><h4>✏️ תרגיל 3 — לוח כפל (2D)</h4><span class="difficulty medium">בינוני</span></div><div class="exercise-body"><p>צור מערך דו-ממדי 10×10 שמכיל את לוח הכפל, והדפס אותו בפורמט טבלה.</p><button class="solution-toggle" onclick="toggleSolution(&#39;sol3&#39;)">הצג פתרון</button><div class="solution" id="sol3"><div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">פתרון</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">int</span>[][] table = <span class="kw">new</span> <span class="kw">int</span>[<span class="nb">10</span>][<span class="nb">10</span>];
+
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">0</span>; i &lt; <span class="nb">10</span>; i++) {
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nb">0</span>; j &lt; <span class="nb">10</span>; j++) {
+        table[i][j] = (i + <span class="nb">1</span>) * (j + <span class="nb">1</span>);
+        System.out.<span class="fn">printf</span>(<span class="st">"%4d"</span>, table[i][j]);
+    }
+    System.out.<span class="fn">println</span>();
+}</pre></div></div></div></div></div>
+</section>
+
+<section class="section">
+<div class="quiz"><h4>🧠 בדוק את עצמך — שאלה 1</h4><p class="quiz-question">מה יודפס?</p><div class="code-container" style="margin-bottom:16px"><div class="code-block"><pre>int[] arr = new int[3];
+System.out.println(arr[1]);</pre></div></div><div class="quiz-options" id="quiz1"><div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;,this,true)">0</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;,this,false)">null</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;,this,false)">שגיאה</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;,this,false)">1</div></div><div class="quiz-feedback" id="quiz1-fb"></div></div>
+
+<div class="quiz"><h4>🧠 בדוק את עצמך — שאלה 2</h4><p class="quiz-question">מה ההבדל בין .length ל-.length()?</p><div class="quiz-options" id="quiz2" style="direction:rtl;text-align:right;font-family:&#39;Heebo&#39;,sans-serif;font-size:14px"><div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;,this,true)">.length = מערך (תכונה), .length() = מחרוזת (מתודה)</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;,this,false)">אין הבדל</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;,this,false)">.length() = מערך, .length = מחרוזת</div></div><div class="quiz-feedback" id="quiz2-fb"></div></div>
+</section>
+
+<section class="section" id="sec6">
+<div class="summary-card" style="background:linear-gradient(135deg,rgba(52,211,153,0.1),rgba(52,211,153,0.05));border:1px solid rgba(52,211,153,0.2)"><h3>📋 סיכום שיעור 4</h3><ul class="checklist">
+<li>מערך = גודל קבוע, סוג אחיד, אינדקס מ-0</li>
+<li>הגדרה: int[] arr = {1,2,3} או new int[size]</li>
+<li>.length בלי סוגריים (תכונה, לא מתודה)</li>
+<li>ערכי ברירת מחדל: int→0, boolean→false, String→null</li>
+<li>for-each לקריאה בלבד: for (int x : arr)</li>
+<li>אלגוריתמים: חיפוש סדרתי, מינימום, ממוצע</li>
+<li>מערך 2D: int[][] matrix, גישה: matrix[שורה][עמודה]</li>
+<li>ArrayIndexOutOfBoundsException — אינדקס מחוץ לטווח</li>
+</ul></div>
+<div class="info-box tip"><div class="box-title">🔜 בשיעור הבא</div><strong>פונקציות/מתודות</strong> — איך לפרק תוכנית ליחידות קטנות, פרמטרים, ערכי החזרה, ו-static.</div>
+</section>
+
+<div class="lesson-nav">
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson3.html" class="nav-btn prev">→ מחרוזות ו-Math</a>
+<div class="nav-indicator"><div class="nav-dots"><div class="nav-dot done"></div><div class="nav-dot done"></div><div class="nav-dot done"></div><div class="nav-dot active"></div><div class="nav-dot "></div><div class="nav-dot "></div><div class="nav-dot "></div><div class="nav-dot "></div><div class="nav-dot "></div><div class="nav-dot "></div></div><span>שיעור 4 מתוך 10</span></div>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/2e0292b0-bc62-421c-8aeb-4c0688f15e2c_java_course_complete.zip.e2c/lesson5.html" class="nav-btn next">פונקציות/מתודות ←</a>
+</div>
+</main>
+<script>
+window.addEventListener('scroll',()=>{const d=document.documentElement;const p=Math.round((d.scrollTop/(d.scrollHeight-d.clientHeight))*100);document.getElementById('progressFill').style.width=p+'%';document.getElementById('progressPercent').textContent=p+'%'});
+function copyCode(b){const t=b.closest('.code-container').querySelector('pre');navigator.clipboard.writeText(t.textContent).then(()=>{b.textContent='\u2713 הועתק!';setTimeout(()=>b.textContent='העתק',2000)})}
+function toggleSolution(id){document.getElementById(id).classList.toggle('show')}
+function checkQuiz(q,o,c){const el=document.getElementById(q),fb=document.getElementById(q+'-fb');if(el.dataset.answered)return;el.dataset.answered='true';if(c){o.classList.add('correct');fb.className='quiz-feedback show success';fb.textContent='\ud83c\udf89 נכון מאוד!'}else{o.classList.add('wrong');el.querySelectorAll('.quiz-option').forEach(x=>{if(x!==o&&x.getAttribute('onclick').includes('true'))x.classList.add('correct')});fb.className='quiz-feedback show error';fb.textContent='\u274c לא מדויק — ראה בירוק'}}
+document.querySelectorAll('.toc-item').forEach(l=>{l.addEventListener('click',e=>{e.preventDefault();document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'})})});
+document.querySelectorAll('.checklist li').forEach(li=>{li.addEventListener('click',()=>li.classList.toggle('checked'))});
+</script>
+
+</body></html>

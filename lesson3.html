@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!-- saved from url=(0118)file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שיעור 3 — מחרוזות, Math ו-Packages | תכנות מונחה עצמים</title>
+<link href="./lesson3_files/css2" rel="stylesheet">
+<style>
+:root{--bg-primary:#0f1117;--bg-secondary:#1a1d27;--bg-card:#21242f;--bg-code:#161922;--accent-blue:#60a5fa;--accent-purple:#a78bfa;--accent-green:#34d399;--accent-orange:#fb923c;--accent-pink:#f472b6;--accent-yellow:#fbbf24;--accent-red:#f87171;--accent-cyan:#22d3ee;--text-primary:#e8eaf0;--text-secondary:#9ca3af;--text-muted:#6b7280;--border:#2d3140;--border-glow:rgba(96,165,250,0.3);--shadow-card:0 4px 24px rgba(0,0,0,0.3);--radius:12px;--lesson-accent:#a78bfa}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Heebo',sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.8;font-size:16px;overflow-x:hidden}.hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0f1117 0%,#1e1533 50%,#0f1117 100%)}.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 40% 30%,rgba(167,139,250,0.07) 0%,transparent 50%);animation:heroFloat 15s ease-in-out infinite}@keyframes heroFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-2%,2%)}}.hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}.lesson-badge{display:inline-block;padding:6px 20px;border-radius:30px;background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.3);color:var(--lesson-accent);font-size:14px;font-weight:500;margin-bottom:20px;letter-spacing:1px}.hero h1{font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--accent-purple),var(--accent-blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;line-height:1.3}.hero .subtitle{font-size:1.2rem;color:var(--text-secondary);font-weight:300}.progress-bar-container{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:12px 40px}.progress-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:12px}.progress-label{font-size:13px;color:var(--text-muted);white-space:nowrap}.progress-track{flex:1;height:6px;background:var(--bg-card);border-radius:3px;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-blue));border-radius:3px;width:0%;transition:width .3s ease}.top-nav{max-width:900px;margin:0 auto;padding:10px 20px;display:flex;justify-content:space-between;font-size:13px}.top-nav a{color:var(--text-muted);text-decoration:none}.top-nav a:hover{color:var(--lesson-accent)}.toc{max-width:900px;margin:40px auto;padding:0 20px}.toc-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-card)}.toc-title{font-size:1.1rem;font-weight:700;color:var(--lesson-accent);margin-bottom:20px}.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.toc-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--text-secondary);font-size:14px}.toc-item:hover{background:rgba(167,139,250,0.1);color:var(--lesson-accent)}.toc-num{width:28px;height:28px;border-radius:50%;background:var(--bg-secondary);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--lesson-accent);flex-shrink:0}.content{max-width:900px;margin:0 auto;padding:20px 20px 80px}.section{margin-bottom:60px;opacity:0;transform:translateY(20px);animation:fadeUp .6s ease forwards}@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--border)}.section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}.section-icon.purple{background:rgba(167,139,250,0.15)}.section-icon.blue{background:rgba(96,165,250,0.15)}.section-icon.green{background:rgba(52,211,153,0.15)}.section-icon.orange{background:rgba(251,146,60,0.15)}.section-icon.pink{background:rgba(244,114,182,0.15)}.section h2{font-size:1.6rem;font-weight:700}.text-block{margin-bottom:20px;color:var(--text-secondary);font-size:15px;line-height:1.9}.text-block strong{color:var(--text-primary);font-weight:600}.term{color:var(--accent-green);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:14px;background:rgba(52,211,153,0.1);padding:2px 6px;border-radius:4px}.info-box{padding:18px 22px;border-radius:var(--radius);margin:20px 0;font-size:14px;line-height:1.8;border-right:4px solid}.info-box.tip{background:rgba(52,211,153,0.08);border-color:var(--accent-green);color:#a7f3d0}.info-box.warning{background:rgba(251,146,60,0.08);border-color:var(--accent-orange);color:#fed7aa}.info-box.note{background:rgba(96,165,250,0.08);border-color:var(--accent-blue);color:#bfdbfe}.info-box .box-title{font-weight:700;margin-bottom:6px}.code-container{margin:20px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-card)}.code-header{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:var(--bg-secondary);border-bottom:1px solid var(--border)}.code-lang{font-size:12px;font-weight:600;color:var(--accent-purple);letter-spacing:1px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}.code-title{font-size:13px;color:var(--text-muted)}.copy-btn{background:rgba(96,165,250,0.15);border:1px solid rgba(96,165,250,0.3);color:var(--accent-blue);padding:4px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-family:'Heebo',sans-serif}.code-block{background:var(--bg-code);padding:20px;overflow-x:auto;direction:ltr;text-align:left}.code-block pre{font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.7;white-space:pre;color:#e8eaf0}.kw{color:#c084fc;font-weight:500}.tp{color:#60a5fa}.st{color:#34d399}.cm{color:#6b7280;font-style:italic}.nb{color:#fbbf24}.fn{color:#f472b6}.table-container{margin:20px 0;overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}table{width:100%;border-collapse:collapse;font-size:14px}th{background:var(--bg-secondary);padding:14px 18px;text-align:right;font-weight:600;color:var(--lesson-accent);border-bottom:2px solid var(--border)}td{padding:12px 18px;border-bottom:1px solid var(--border);color:var(--text-secondary)}td:first-child{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-green);font-weight:500}.concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:20px 0}.concept-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all .3s}.concept-card:hover{border-color:var(--border-glow);transform:translateY(-2px)}.concept-card .card-icon{font-size:28px;margin-bottom:12px}.concept-card h4{font-size:15px;font-weight:700;margin-bottom:8px}.concept-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}.analogy{background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(167,139,250,0.03));border:1px solid rgba(167,139,250,0.2);border-radius:var(--radius);padding:22px;margin:20px 0}.analogy .analogy-title{font-size:14px;font-weight:700;color:var(--lesson-accent);margin-bottom:8px}.analogy p{font-size:14px;color:var(--text-secondary);line-height:1.8}.exercise{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin:24px 0;overflow:hidden}.exercise-header{padding:16px 22px;background:linear-gradient(135deg,rgba(251,146,60,0.15),rgba(244,114,182,0.1));border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;cursor:pointer}.exercise-header h4{font-size:15px;font-weight:700;color:var(--accent-orange)}.difficulty{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}.difficulty.easy{background:rgba(52,211,153,0.15);color:var(--accent-green)}.difficulty.medium{background:rgba(251,191,36,0.15);color:var(--accent-yellow)}.difficulty.hard{background:rgba(248,113,113,0.15);color:var(--accent-red)}.exercise-body{padding:20px 22px}.exercise-body p{color:var(--text-secondary);font-size:14px;margin-bottom:14px;line-height:1.8}.solution-toggle{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);color:var(--accent-purple);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:'Heebo',sans-serif;margin-top:10px}.solution{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}.solution.show{display:block}.quiz{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;margin:24px 0}.quiz h4{font-size:15px;font-weight:700;color:var(--accent-pink);margin-bottom:14px}.quiz-question{color:var(--text-secondary);font-size:14px;margin-bottom:12px}.quiz-options{display:flex;flex-direction:column;gap:8px}.quiz-option{padding:12px 16px;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;color:var(--text-secondary);transition:all .2s;direction:ltr;text-align:left;font-family:'JetBrains Mono',monospace}.quiz-option.correct{border-color:var(--accent-green)!important;background:rgba(52,211,153,0.1)!important;color:var(--accent-green)!important}.quiz-option.wrong{border-color:var(--accent-red)!important;background:rgba(248,113,113,0.1)!important;color:var(--accent-red)!important}.quiz-feedback{margin-top:12px;font-size:13px;display:none;padding:10px 14px;border-radius:8px}.quiz-feedback.show{display:block}.quiz-feedback.success{background:rgba(52,211,153,0.1);color:var(--accent-green)}.quiz-feedback.error{background:rgba(248,113,113,0.1);color:var(--accent-red)}.summary-card{background:linear-gradient(135deg,rgba(167,139,250,0.1),rgba(167,139,250,0.05));border:1px solid rgba(167,139,250,0.2);border-radius:var(--radius);padding:30px;margin:40px 0}.summary-card h3{font-size:1.2rem;font-weight:700;color:var(--lesson-accent);margin-bottom:16px}.checklist{list-style:none}.checklist li{padding:8px 0;color:var(--text-secondary);font-size:14px;display:flex;align-items:center;gap:10px;cursor:pointer}.checklist li::before{content:'☐';font-size:16px;color:var(--lesson-accent)}.checklist li.checked::before{content:'☑';color:var(--accent-green)}.lesson-nav{max-width:900px;margin:0 auto 40px;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}.nav-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;text-decoration:none;font-family:'Heebo',sans-serif;font-size:15px;font-weight:600;transition:all .3s;border:1px solid var(--border)}.nav-btn.next{background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(167,139,250,0.1));color:var(--lesson-accent);border-color:rgba(167,139,250,0.3)}.nav-btn.next:hover{transform:translateY(-2px)}.nav-btn.prev{background:var(--bg-card);color:var(--text-secondary)}.nav-btn.prev:hover{color:var(--text-primary)}.nav-btn.disabled{opacity:.3;pointer-events:none}.nav-indicator{font-size:13px;color:var(--text-muted);display:flex;flex-direction:column;align-items:center;gap:4px}.nav-dots{display:flex;gap:6px}.nav-dot{width:10px;height:10px;border-radius:50%;background:var(--border)}.nav-dot.active{background:var(--lesson-accent)}.nav-dot.done{background:var(--accent-green)}@media(max-width:600px){.hero{padding:50px 20px 40px}.hero h1{font-size:2rem}.toc-grid,.concept-grid{grid-template-columns:1fr}.code-block pre{font-size:12px}.lesson-nav{flex-direction:column}.nav-btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-content"><div class="lesson-badge">שיעור 3 מתוך 10</div><h1>מחרוזות, Math ו-Packages</h1><p class="subtitle">עבודה עם טקסט, חישובים מתמטיים וספריות Java</p></div></header>
+<div class="progress-bar-container"><div class="progress-inner"><span class="progress-label">התקדמות בשיעור</span><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><span class="progress-label" id="progressPercent">0%</span></div></div>
+<div class="top-nav"><a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson2.html">→ שיעור קודם: ביטויים ותנאים</a><span style="color:var(--lesson-accent)">📍 שיעור 3 מתוך 10</span><a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson4.html">שיעור הבא: מערכים ←</a></div>
+
+<nav class="toc"><div class="toc-card"><div class="toc-title">📑 תוכן השיעור</div><div class="toc-grid">
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html#sec1" class="toc-item"><span class="toc-num">1</span>מחרוזות — יצירה ופעולות</a>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html#sec2" class="toc-item"><span class="toc-num">2</span>השוואת מחרוזות</a>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html#sec3" class="toc-item"><span class="toc-num">3</span>char לעומת String</a>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html#sec4" class="toc-item"><span class="toc-num">4</span>מחלקת Math</a>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html#sec5" class="toc-item"><span class="toc-num">5</span>Packages ו-import</a>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html#sec6" class="toc-item"><span class="toc-num">6</span>תרגילים</a>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson3.html#sec7" class="toc-item"><span class="toc-num">7</span>סיכום וצ'קליסט</a>
+</div></div></nav>
+
+<main class="content">
+
+<!-- SEC 1: Strings -->
+<section class="section" id="sec1">
+<div class="section-header"><div class="section-icon purple">📝</div><h2>מחרוזות (Strings) — יצירה ופעולות</h2></div>
+<div class="text-block"><strong>String</strong> ב-Java הוא <strong>אובייקט</strong> (לא טיפוס פרימיטיבי), ולכן מתחיל באות גדולה. מחרוזת היא <strong>בלתי ניתנת לשינוי (Immutable)</strong> — כל פעולה מחזירה מחרוזת חדשה.</div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">יצירת מחרוזות</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="cm">// דרך מקוצרת (הנפוצה)</span>
+<span class="tp">String</span> name = <span class="st">"Java Programming"</span>;
+
+<span class="cm">// דרך מלאה (פחות נפוצה)</span>
+<span class="tp">String</span> name2 = <span class="kw">new</span> <span class="tp">String</span>(<span class="st">"Java Programming"</span>);
+
+<span class="cm">// שרשור מחרוזות עם +</span>
+<span class="tp">String</span> full = <span class="st">"Hello"</span> + <span class="st">" "</span> + <span class="st">"World"</span>;  <span class="cm">// "Hello World"</span>
+
+<span class="cm">// שרשור עם מספרים</span>
+<span class="kw">int</span> age = <span class="nb">25</span>;
+<span class="tp">String</span> msg = <span class="st">"גיל: "</span> + age;  <span class="cm">// "גיל: 25"</span></pre></div></div>
+
+<div class="text-block"><strong>פונקציות שירות (Methods) של String:</strong></div>
+
+<div class="table-container"><table>
+<tbody><tr><th>מתודה</th><th>מה עושה</th><th>דוגמה</th><th>תוצאה</th></tr>
+<tr><td>length()</td><td>אורך המחרוזת</td><td>"Hello".length()</td><td>5</td></tr>
+<tr><td>toUpperCase()</td><td>הפיכה לאותיות גדולות</td><td>"java".toUpperCase()</td><td>"JAVA"</td></tr>
+<tr><td>toLowerCase()</td><td>הפיכה לאותיות קטנות</td><td>"JAVA".toLowerCase()</td><td>"java"</td></tr>
+<tr><td>trim()</td><td>הסרת רווחים מהקצוות</td><td>" hi ".trim()</td><td>"hi"</td></tr>
+<tr><td>charAt(i)</td><td>תו במיקום i</td><td>"Java".charAt(0)</td><td>'J'</td></tr>
+<tr><td>substring(a,b)</td><td>תת-מחרוזת מ-a עד b (לא כולל)</td><td>"Java".substring(0,3)</td><td>"Jav"</td></tr>
+<tr><td>contains(s)</td><td>האם מכילה את s?</td><td>"Hello".contains("ell")</td><td>true</td></tr>
+<tr><td>indexOf(s)</td><td>מיקום ראשון של s</td><td>"Hello".indexOf("l")</td><td>2</td></tr>
+<tr><td>replace(a,b)</td><td>החלפת a ב-b</td><td>"cat".replace("c","b")</td><td>"bat"</td></tr>
+</tbody></table></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">שרשור מתודות (Method Chaining)</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="tp">String</span> text = <span class="st">"  Java Programming  "</span>;
+
+<span class="cm">// אפשר לשרשר מתודות אחת אחרי השנייה</span>
+<span class="kw">char</span> first = text.<span class="fn">trim</span>().<span class="fn">charAt</span>(<span class="nb">0</span>);  <span class="cm">// 'J'</span>
+
+<span class="cm">// trim מחזיר "Java Programming", charAt(0) מחזיר 'J'</span>
+<span class="tp">String</span> upper = text.<span class="fn">trim</span>().<span class="fn">toUpperCase</span>();  <span class="cm">// "JAVA PROGRAMMING"</span></pre></div></div>
+
+<div class="info-box note"><div class="box-title">📝 Immutable = בלתי ניתן לשינוי</div>כל מתודה של String מחזירה מחרוזת <strong>חדשה</strong>. המקורית לא משתנה!<br><span class="term">text.toUpperCase()</span> לא משנה את text — צריך לשמור: <span class="term">text = text.toUpperCase()</span></div>
+</section>
+
+<!-- SEC 2: String Comparison -->
+<section class="section" id="sec2">
+<div class="section-header"><div class="section-icon green">⚖️</div><h2>השוואת מחרוזות — equals ולא ==</h2></div>
+
+<div class="text-block">זה אחד <strong>הנושאים הכי חשובים</strong> בשיעור הזה. ב-Java, <span class="term">==</span> על מחרוזות בודק אם זה <strong>אותו אובייקט בזיכרון</strong>, לא אם התוכן זהה!</div>
+
+<div class="info-box warning"><div class="box-title">⚠️ כלל ברזל: להשוות מחרוזות תמיד עם equals()</div>
+<span class="term">==</span> → בודק אם זה אותו אובייקט (כתובת בזיכרון)<br>
+<span class="term">equals()</span> → בודק אם התוכן זהה ✅<br>
+<span class="term">equalsIgnoreCase()</span> → בודק תוכן, מתעלם מגודל אותיות ✅
+</div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">== לעומת equals()</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="tp">String</span> a = <span class="st">"Java"</span>;
+<span class="tp">String</span> b = <span class="kw">new</span> <span class="tp">String</span>(<span class="st">"Java"</span>);
+
+System.out.<span class="fn">println</span>(a == b);         <span class="cm">// false! (אובייקטים שונים)</span>
+System.out.<span class="fn">println</span>(a.<span class="fn">equals</span>(b));    <span class="cm">// true  (תוכן זהה) ✅</span>
+
+<span class="cm">// התעלמות מגודל אותיות</span>
+<span class="tp">String</span> c = <span class="st">"JAVA"</span>;
+System.out.<span class="fn">println</span>(a.<span class="fn">equalsIgnoreCase</span>(c));  <span class="cm">// true ✅</span></pre></div></div>
+
+<div class="analogy"><div class="analogy-title">💡 אנלוגיה</div><p>חשוב על שני עותקים של אותו ספר. <strong>==</strong> שואל "האם זה אותו עותק פיזי?" (לא). <strong>equals</strong> שואל "האם התוכן זהה?" (כן).</p></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">compareTo — השוואה לקסיקוגרפית</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="tp">String</span> a = <span class="st">"Apple"</span>;
+<span class="tp">String</span> b = <span class="st">"Banana"</span>;
+
+<span class="kw">int</span> result = a.<span class="fn">compareTo</span>(b);
+<span class="cm">// result &lt; 0 → a בא לפני b (לפי ABC)</span>
+<span class="cm">// result == 0 → שווים</span>
+<span class="cm">// result &gt; 0 → a בא אחרי b</span>
+
+System.out.<span class="fn">println</span>(result);  <span class="cm">// מספר שלילי (A לפני B)</span></pre></div></div>
+</section>
+
+<!-- SEC 3: char vs String -->
+<section class="section" id="sec3">
+<div class="section-header"><div class="section-icon blue">🔤</div><h2>char לעומת String</h2></div>
+
+<div class="table-container"><table>
+<tbody><tr><th>תכונה</th><th>char</th><th>String</th></tr>
+<tr><td>סוג</td><td>פרימיטיבי</td><td>אובייקט (מחלקה)</td></tr>
+<tr><td>סימון</td><td>גרש בודד: 'A'</td><td>גרשיים: "A"</td></tr>
+<tr><td>גודל</td><td>תו אחד בלבד</td><td>0 או יותר תווים</td></tr>
+<tr><td>השוואה</td><td>== (עובד!)</td><td>equals() (חובה!)</td></tr>
+<tr><td>דוגמה</td><td>char grade = 'A';</td><td>String name = "Niv";</td></tr>
+</tbody></table></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">char ו-String</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">char</span> letter = <span class="st">'A'</span>;           <span class="cm">// תו בודד — גרש בודד!</span>
+<span class="tp">String</span> word = <span class="st">"ABC"</span>;          <span class="cm">// מחרוזת — גרשיים!</span>
+
+<span class="cm">// חילוץ תו ממחרוזת</span>
+<span class="kw">char</span> first = word.<span class="fn">charAt</span>(<span class="nb">0</span>);  <span class="cm">// 'A'</span>
+
+<span class="cm">// char הוא בעצם מספר (קוד ASCII/Unicode)</span>
+<span class="kw">char</span> c = <span class="st">'A'</span>;
+System.out.<span class="fn">println</span>((<span class="kw">int</span>) c);  <span class="cm">// 65</span>
+System.out.<span class="fn">println</span>(c + <span class="nb">1</span>);     <span class="cm">// 66 (מספר!)</span>
+System.out.<span class="fn">println</span>((<span class="kw">char</span>)(c + <span class="nb">1</span>));  <span class="cm">// 'B'</span></pre></div></div>
+</section>
+
+<!-- SEC 4: Math -->
+<section class="section" id="sec4">
+<div class="section-header"><div class="section-icon orange">🔢</div><h2>מחלקת Math</h2></div>
+<div class="text-block">מחלקת <span class="term">Math</span> נמצאת ב-<span class="term">java.lang</span> — לא צריך import. היא מכילה פונקציות מתמטיות שימושיות.</div>
+
+<div class="table-container"><table>
+<tbody><tr><th>פונקציה</th><th>מה עושה</th><th>דוגמה</th><th>תוצאה</th></tr>
+<tr><td>Math.abs(x)</td><td>ערך מוחלט</td><td>Math.abs(-5)</td><td>5</td></tr>
+<tr><td>Math.pow(x,y)</td><td>x בחזקת y</td><td>Math.pow(2,3)</td><td>8.0</td></tr>
+<tr><td>Math.sqrt(x)</td><td>שורש ריבועי</td><td>Math.sqrt(16)</td><td>4.0</td></tr>
+<tr><td>Math.max(a,b)</td><td>הגדול מבין שניים</td><td>Math.max(5,9)</td><td>9</td></tr>
+<tr><td>Math.min(a,b)</td><td>הקטן מבין שניים</td><td>Math.min(5,9)</td><td>5</td></tr>
+<tr><td>Math.round(x)</td><td>עיגול לשלם הקרוב</td><td>Math.round(4.6)</td><td>5</td></tr>
+<tr><td>Math.ceil(x)</td><td>עיגול למעלה</td><td>Math.ceil(4.1)</td><td>5.0</td></tr>
+<tr><td>Math.floor(x)</td><td>עיגול למטה</td><td>Math.floor(4.9)</td><td>4.0</td></tr>
+<tr><td>Math.random()</td><td>מספר אקראי 0-1</td><td>Math.random()</td><td>0.7342...</td></tr>
+<tr><td>Math.PI</td><td>קבוע π</td><td>Math.PI</td><td>3.14159...</td></tr>
+</tbody></table></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">שימושים נפוצים ב-Math</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="cm">// מספר אקראי בין 1 ל-100</span>
+<span class="kw">int</span> dice = (<span class="kw">int</span>)(Math.<span class="fn">random</span>() * <span class="nb">100</span>) + <span class="nb">1</span>;
+
+<span class="cm">// שטח עיגול</span>
+<span class="kw">double</span> radius = <span class="nb">5.0</span>;
+<span class="kw">double</span> area = Math.PI * Math.<span class="fn">pow</span>(radius, <span class="nb">2</span>);
+
+<span class="cm">// מרחק בין שתי נקודות</span>
+<span class="kw">double</span> dist = Math.<span class="fn">sqrt</span>(Math.<span class="fn">pow</span>(x2 - x1, <span class="nb">2</span>) + Math.<span class="fn">pow</span>(y2 - y1, <span class="nb">2</span>));
+
+<span class="cm">// ceil ו-floor</span>
+System.out.<span class="fn">println</span>(Math.<span class="fn">ceil</span>(<span class="nb">7.2</span>));   <span class="cm">// 8.0</span>
+System.out.<span class="fn">println</span>(Math.<span class="fn">floor</span>(<span class="nb">7.9</span>));  <span class="cm">// 7.0</span></pre></div></div>
+</section>
+
+<!-- SEC 5: Packages -->
+<section class="section" id="sec5">
+<div class="section-header"><div class="section-icon pink">📦</div><h2>Packages ו-import</h2></div>
+<div class="text-block">Java מאורגנת ב<strong>חבילות (Packages)</strong> — ספריות של מחלקות מוכנות. כדי להשתמש במחלקה מחבילה, צריך <span class="term">import</span>.</div>
+
+<div class="table-container"><table>
+<tbody><tr><th>חבילה</th><th>מה מכילה</th><th>צריך import?</th></tr>
+<tr><td>java.lang</td><td>String, Math, System, Integer...</td><td>❌ אוטומטי!</td></tr>
+<tr><td>java.util</td><td>Scanner, ArrayList, HashMap...</td><td>✅ כן</td></tr>
+<tr><td>java.io</td><td>File, BufferedReader (קבצים)</td><td>✅ כן</td></tr>
+<tr><td>java.sql</td><td>בסיסי נתונים</td><td>✅ כן</td></tr>
+</tbody></table></div>
+
+<div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">import</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="cm">// ייבוא מחלקה ספציפית</span>
+<span class="kw">import</span> java.util.Scanner;
+
+<span class="cm">// ייבוא כל החבילה</span>
+<span class="kw">import</span> java.util.*;
+
+<span class="cm">// לא צריך import ל:</span>
+<span class="cm">// String, Math, System, Integer, Double — הם ב-java.lang</span></pre></div></div>
+
+<div class="info-box tip"><div class="box-title">✅ Wrapper Classes</div>לכל טיפוס פרימיטיבי יש מחלקה עוטפת:<br>
+<span class="term">int</span> → <span class="term">Integer</span> &nbsp;|&nbsp;
+<span class="term">double</span> → <span class="term">Double</span> &nbsp;|&nbsp;
+<span class="term">char</span> → <span class="term">Character</span> &nbsp;|&nbsp;
+<span class="term">boolean</span> → <span class="term">Boolean</span><br><br>
+שימושי: <span class="term">Integer.parseInt("42")</span> → 42 &nbsp;|&nbsp; <span class="term">Double.parseDouble("3.14")</span> → 3.14<br>
+<span class="term">Integer.MAX_VALUE</span> → הערך המקסימלי של int &nbsp;|&nbsp; <span class="term">Integer.MIN_VALUE</span> → המינימלי</div>
+</section>
+
+<!-- SEC 6: Exercises -->
+<section class="section" id="sec6">
+<div class="section-header"><div class="section-icon orange">✏️</div><h2>תרגילים</h2></div>
+
+<div class="exercise"><div class="exercise-header" onclick="toggleSolution(&#39;sol1&#39;)"><h4>✏️ תרגיל 1 — ספירת תווים</h4><span class="difficulty easy">קל</span></div><div class="exercise-body"><p>כתוב תוכנית שקולטת מחרוזת ומדפיסה את <strong>אורכה</strong>, <strong>האות הראשונה</strong> ו<strong>האחרונה</strong>.</p><button class="solution-toggle" onclick="toggleSolution(&#39;sol1&#39;)">הצג פתרון</button><div class="solution" id="sol1"><div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">פתרון</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="tp">CharCount</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="tp">Scanner</span> reader = <span class="kw">new</span> <span class="tp">Scanner</span>(System.in);
+        System.out.<span class="fn">print</span>(<span class="st">"הכנס מחרוזת: "</span>);
+        <span class="tp">String</span> text = reader.<span class="fn">nextLine</span>();
+
+        System.out.<span class="fn">println</span>(<span class="st">"אורך: "</span> + text.<span class="fn">length</span>());
+        System.out.<span class="fn">println</span>(<span class="st">"אות ראשונה: "</span> + text.<span class="fn">charAt</span>(<span class="nb">0</span>));
+        System.out.<span class="fn">println</span>(<span class="st">"אות אחרונה: "</span> + text.<span class="fn">charAt</span>(text.<span class="fn">length</span>() - <span class="nb">1</span>));
+        reader.<span class="fn">close</span>();
+    }
+}</pre></div></div></div></div></div>
+
+<div class="exercise"><div class="exercise-header" onclick="toggleSolution(&#39;sol2&#39;)"><h4>✏️ תרגיל 2 — בדיקת פלינדרום</h4><span class="difficulty medium">בינוני</span></div><div class="exercise-body"><p>כתוב תוכנית שקולטת מחרוזת ובודקת אם היא <strong>פלינדרום</strong> (נקראת אותו דבר מההתחלה ומהסוף). לדוגמה: "aba", "racecar".</p><button class="solution-toggle" onclick="toggleSolution(&#39;sol2&#39;)">הצג פתרון</button><div class="solution" id="sol2"><div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">פתרון</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="tp">Palindrome</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="tp">Scanner</span> reader = <span class="kw">new</span> <span class="tp">Scanner</span>(System.in);
+        System.out.<span class="fn">print</span>(<span class="st">"הכנס מילה: "</span>);
+        <span class="tp">String</span> word = reader.<span class="fn">nextLine</span>().<span class="fn">toLowerCase</span>();
+
+        <span class="kw">boolean</span> isPalindrome = <span class="kw">true</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">0</span>; i &lt; word.<span class="fn">length</span>() / <span class="nb">2</span>; i++) {
+            <span class="kw">if</span> (word.<span class="fn">charAt</span>(i) != word.<span class="fn">charAt</span>(word.<span class="fn">length</span>() - <span class="nb">1</span> - i)) {
+                isPalindrome = <span class="kw">false</span>;
+                <span class="kw">break</span>;
+            }
+        }
+
+        System.out.<span class="fn">println</span>(isPalindrome ? <span class="st">"פלינדרום!"</span> : <span class="st">"לא פלינדרום"</span>);
+        reader.<span class="fn">close</span>();
+    }
+}</pre></div></div></div></div></div>
+
+<div class="exercise"><div class="exercise-header" onclick="toggleSolution(&#39;sol3&#39;)"><h4>✏️ תרגיל 3 — מחשבון שטח עיגול</h4><span class="difficulty easy">קל</span></div><div class="exercise-body"><p>קלוט רדיוס עיגול וחשב את <strong>השטח</strong> (πr²) ואת <strong>ההיקף</strong> (2πr) באמצעות <span class="term">Math.PI</span>.</p><button class="solution-toggle" onclick="toggleSolution(&#39;sol3&#39;)">הצג פתרון</button><div class="solution" id="sol3"><div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">פתרון</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="tp">CircleCalc</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="tp">Scanner</span> reader = <span class="kw">new</span> <span class="tp">Scanner</span>(System.in);
+        System.out.<span class="fn">print</span>(<span class="st">"הכנס רדיוס: "</span>);
+        <span class="kw">double</span> r = reader.<span class="fn">nextDouble</span>();
+
+        <span class="kw">double</span> area = Math.PI * Math.<span class="fn">pow</span>(r, <span class="nb">2</span>);
+        <span class="kw">double</span> circumference = <span class="nb">2</span> * Math.PI * r;
+
+        System.out.<span class="fn">printf</span>(<span class="st">"שטח: %.2f%n"</span>, area);
+        System.out.<span class="fn">printf</span>(<span class="st">"היקף: %.2f%n"</span>, circumference);
+        reader.<span class="fn">close</span>();
+    }
+}</pre></div></div></div></div></div>
+
+<div class="exercise"><div class="exercise-header" onclick="toggleSolution(&#39;sol4&#39;)"><h4>✏️ תרגיל 4 — חיפוש case-insensitive</h4><span class="difficulty medium">בינוני</span></div><div class="exercise-body"><p>קלוט מערך של מחרוזות ומחרוזת חיפוש. הדפס את כל האינדקסים שבהם נמצאת המחרוזת (בלי רגישות לאותיות).</p><button class="solution-toggle" onclick="toggleSolution(&#39;sol4&#39;)">הצג פתרון</button><div class="solution" id="sol4"><div class="code-container"><div class="code-header"><span class="code-lang">Java</span><span class="code-title">פתרון</span><button class="copy-btn" onclick="copyCode(this)">העתק</button></div><div class="code-block"><pre><span class="kw">public class</span> <span class="tp">SearchArray</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        <span class="tp">String</span>[] names = {<span class="st">"Java"</span>, <span class="st">"python"</span>, <span class="st">"JAVA"</span>, <span class="st">"C++"</span>, <span class="st">"java"</span>};
+        <span class="tp">String</span> search = <span class="st">"java"</span>;
+
+        <span class="kw">boolean</span> found = <span class="kw">false</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nb">0</span>; i &lt; names.length; i++) {
+            <span class="kw">if</span> (names[i].<span class="fn">equalsIgnoreCase</span>(search)) {
+                System.out.<span class="fn">println</span>(<span class="st">"נמצא באינדקס "</span> + i);
+                found = <span class="kw">true</span>;
+            }
+        }
+        <span class="kw">if</span> (!found) {
+            System.out.<span class="fn">println</span>(<span class="st">"לא נמצא"</span>);
+        }
+    }
+}</pre></div></div></div></div></div>
+</section>
+
+<!-- QUIZZES -->
+<section class="section">
+<div class="quiz"><h4>🧠 בדוק את עצמך — שאלה 1</h4><p class="quiz-question">מה יודפס?</p><div class="code-container" style="margin-bottom:16px"><div class="code-block"><pre>String a = new String("Hello");
+String b = new String("Hello");
+System.out.println(a == b);</pre></div></div><div class="quiz-options" id="quiz1"><div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;,this,false)">true</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;,this,true)">false</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz1&#39;,this,false)">שגיאה</div></div><div class="quiz-feedback" id="quiz1-fb"></div></div>
+
+<div class="quiz"><h4>🧠 בדוק את עצמך — שאלה 2</h4><p class="quiz-question">מה מחזיר הביטוי?</p><div class="code-container" style="margin-bottom:16px"><div class="code-block"><pre>"Java Programming".substring(5, 8)</pre></div></div><div class="quiz-options" id="quiz2"><div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;,this,true)">"Pro"</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;,this,false)">"Prog"</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;,this,false)">"aPro"</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz2&#39;,this,false)">"Pr"</div></div><div class="quiz-feedback" id="quiz2-fb"></div></div>
+
+<div class="quiz"><h4>🧠 בדוק את עצמך — שאלה 3</h4><p class="quiz-question">מה מחזיר Math.floor(7.99)?</p><div class="quiz-options" id="quiz3"><div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;,this,false)">8.0</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;,this,true)">7.0</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;,this,false)">7</div><div class="quiz-option" onclick="checkQuiz(&#39;quiz3&#39;,this,false)">8</div></div><div class="quiz-feedback" id="quiz3-fb"></div></div>
+</section>
+
+<!-- SEC 7: Summary -->
+<section class="section" id="sec7">
+<div class="summary-card"><h3>📋 סיכום שיעור 3</h3><ul class="checklist">
+<li>String הוא אובייקט, Immutable — כל פעולה מחזירה חדשה</li>
+<li>מתודות: length(), charAt(), substring(), contains(), trim(), toUpperCase()</li>
+<li>השוואת מחרוזות: equals() ולא == !</li>
+<li>equalsIgnoreCase() להשוואה ללא רגישות לגודל</li>
+<li>char = גרש בודד, String = גרשיים כפולים</li>
+<li>Math: abs, pow, sqrt, max, min, round, ceil, floor, random, PI</li>
+<li>Packages: java.lang (אוטומטי), java.util (צריך import)</li>
+<li>Wrapper Classes: Integer.parseInt(), Double.parseDouble()</li>
+</ul></div>
+
+<div class="info-box tip"><div class="box-title">🔜 בשיעור הבא</div><strong>מערכים (Arrays)</strong> — מבני נתונים בגודל קבוע, חד-ממדיים ודו-ממדיים, אלגוריתמי חיפוש.</div>
+</section>
+
+<div class="lesson-nav">
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson2.html" class="nav-btn prev">→ שיעור קודם: ביטויים ותנאים</a>
+<div class="nav-indicator"><div class="nav-dots"><div class="nav-dot done"></div><div class="nav-dot done"></div><div class="nav-dot active"></div><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot"></div></div><span>שיעור 3 מתוך 10</span></div>
+<a href="file:///C:/Users/Niv/AppData/Local/Temp/bc6cca55-fdc2-42d9-8d74-a07440bc4f27_java_course_complete.zip.f27/lesson4.html" class="nav-btn next">שיעור הבא: מערכים ←</a>
+</div>
+</main>
+<script>
+window.addEventListener('scroll',()=>{const d=document.documentElement;const p=Math.round((d.scrollTop/(d.scrollHeight-d.clientHeight))*100);document.getElementById('progressFill').style.width=p+'%';document.getElementById('progressPercent').textContent=p+'%'});
+function copyCode(b){const t=b.closest('.code-container').querySelector('pre');navigator.clipboard.writeText(t.textContent).then(()=>{b.textContent='✓ הועתק!';setTimeout(()=>b.textContent='העתק',2000)})}
+function toggleSolution(id){document.getElementById(id).classList.toggle('show')}
+function checkQuiz(q,o,c){const el=document.getElementById(q),fb=document.getElementById(q+'-fb');if(el.dataset.answered)return;el.dataset.answered='true';if(c){o.classList.add('correct');fb.className='quiz-feedback show success';fb.textContent='🎉 נכון מאוד!'}else{o.classList.add('wrong');el.querySelectorAll('.quiz-option').forEach(x=>{if(x!==o&&x.getAttribute('onclick').includes('true'))x.classList.add('correct')});fb.className='quiz-feedback show error';fb.textContent='❌ לא מדויק — ראה בירוק'}}
+document.querySelectorAll('.toc-item').forEach(l=>{l.addEventListener('click',e=>{e.preventDefault();document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'})})});
+document.querySelectorAll('.checklist li').forEach(li=>{li.addEventListener('click',()=>li.classList.toggle('checked'))});
+</script>
+
+
+</body></html>
